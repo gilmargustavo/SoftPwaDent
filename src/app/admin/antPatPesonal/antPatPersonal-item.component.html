@@ -1,0 +1,24 @@
+<div *ngIf="item && myForm" formToInject>
+      <form *ngIf="item" (ngSubmit)="onSubmit()" [formGroup]="myForm">
+      
+        
+     
+      
+        
+      <!--isActive - boolean-->
+        <div class="mb-1">
+           <md-checkbox id="presionAltaInput" #presionAltaInput [(ngModel)]="item.presionAlta" [ngModelOptions]="{standalone: true}" [align]="'end'" name="presionAlta_checkbox">{{formMetaData.properties.presionAlta['x-ncg'].label}}</md-checkbox> 
+          <small id="presionAltaErrorMsgs" *ngFor="let error of formMetaData.properties.presionAlta['x-ncg'].errors" class="md-text-warn">{{error.message}}</small>
+        </div>
+      
+      
+        <div *ngIf="!myForm.valid" class="mb-1 ui error message">Form is invalid</div>
+        <div class="mb-1">
+          <button md-raised-button color="primary" id="backButton" type="button" class="btn btn-secondary" (click)="goBack()" [attr.aria-label]="back">Back</button>
+          <button md-raised-button color="primary" id="cancelButton" type="button" class="btn btn-secondary" (click)="onCancel()" [attr.aria-label]="cancel">Cancel</button>
+          <button md-raised-button color="primary" id="resetButton" type="button" [disabled]="myForm.pristine" class="btn btn-secondary" (click)="onReset()" [attr.aria-label]="reset">Reset</button>
+          <button md-raised-button color="primary" id="deleteButton" type="button" class="btn btn-danger" (click)="onDelete()" [attr.aria-label]="delete">Delete</button>
+          <button md-raised-button color="primary" id="submitButton" type="submit" [disabled]="myForm.invalid && isSubmitAttempted" class="btn btn-primary" [attr.aria-label]="submit">Submit</button>
+        </div>
+      </form>
+    </div>

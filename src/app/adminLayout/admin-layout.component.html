@@ -1,0 +1,80 @@
+<div fxLayout="column" fxFlex [class.dark-theme]="isDarkTheme" id="NavBar">
+  <md-toolbar color="primary">
+    <span>SoftDent V1.0</span>
+    <button id="sideBarToggleButton" md-icon-button (click)="sidenav.toggle()">
+      <md-icon>more_vert</md-icon>
+    </button>
+    <!-- Filler that pushes the menu button to the end of the toolbar -->
+    <span fxFlex></span>
+    <button md-icon-button [mdMenuTriggerFor]="themeMenu">
+      <md-icon>perm_identity</md-icon>
+    </button>
+  </md-toolbar>
+  <md-sidenav-container fxFlex class="app-inner">
+    <md-sidenav #sidenav mode="sidenav" id="sidebar-panel" class="sidebar-panel"  opened="false">
+      <md-nav-list class="sidebar-sample">
+        <md-list-item>
+          <div class="badge">Home</div>
+          <button md-menu-item (click)="btnClick();">
+            <md-icon>home</md-icon>
+            <span>Inicio</span>
+          </button>
+        </md-list-item>
+        <md-list-item>
+          <div class="badge">Users</div>
+          <button md-menu-item (click)="btnClick2();">          
+            <md-icon>perm_identity</md-icon>
+            <span>Usuarios</span>
+          </button>
+        </md-list-item>
+        <md-list-item>
+          <div class="badge">Citas</div>
+          <button md-menu-item>            
+            <md-icon>access_time</md-icon>
+            <span>Citas</span>
+          </button>
+        </md-list-item>
+
+      <md-list-item>
+          <div class="badge">Paciente</div>
+          <button md-menu-item (click)="btnClick1();">
+              <md-icon>add_circle</md-icon>
+              <span>Pacientes</span>
+            </button>
+      </md-list-item>
+
+      <md-list-item>
+          <div class="badge">Historial</div>
+          <button md-menu-item>
+              <md-icon>content_paste</md-icon>
+              <span>Historial</span>
+            </button>
+      </md-list-item>
+
+      <md-list-item>
+        <div class="badge">Antecedentes</div>
+        <button md-menu-item (click)="btnClick3();">
+            <md-icon>content_paste</md-icon>
+            <span>Antecedentes Patológicos Personales</span>
+          </button>
+    </md-list-item>
+
+
+    </md-nav-list>
+    </md-sidenav>
+    <router-outlet></router-outlet>
+    <footer>
+      <br>
+      <br>
+      <span> <p>2018 © Gilmar Gustavo Vargas Montevilla - Todos los derechos reservados</p></span>
+    </footer>
+  </md-sidenav-container>
+  <md-menu #themeMenu x-position="before">
+    <button md-menu-item (click)="isDarkTheme = !isDarkTheme">Iniciar Sesión</button>
+    <button md-menu-item (click)="isDarkTheme = !isDarkTheme">Resgistrarse</button>
+  </md-menu>
+</div>
+
+<ncg-busyIndicator></ncg-busyIndicator>
+<ncg-notifier></ncg-notifier>
+<ncg-modal-dialog></ncg-modal-dialog>

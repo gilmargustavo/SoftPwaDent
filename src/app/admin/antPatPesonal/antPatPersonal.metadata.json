@@ -1,0 +1,32 @@
+{
+  "description": "4. Customized in x-ncg, validations.",
+  "properties": {
+    "presionAlta": {
+      "type": "boolean",
+      "x-ncg": {
+        "label": "Presión Alta",
+        "placeholder": "Presión Alta",
+        "type": "boolean",
+        "view": {
+          "item": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          },
+          "list": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          }
+        },
+        "validations": {}
+      }
+    }
+    },
+  "type": "object",
+  "x-ncg": {
+    "isSelected": true,
+    "label": "Type Of Type",
+    "foreignKeys": []
+  }
+}
