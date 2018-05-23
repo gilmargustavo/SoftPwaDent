@@ -2,7 +2,7 @@
 import { browser, by, element } from 'protractor';
 import { AdminView } from '../admin.po';
 import { UserListPageObject } from './user-list.po';
-import { E2eHelper } from '../common/e2eHelper';
+import { E2eHelper } from '../controllers/e2eHelper';
 
 describe('User List', () => {
   describe('As a user, I', () => {

@@ -1,0 +1,166 @@
+<div class="content" fxLayout="row" fxLayout.xs="column" fxFlexFill>
+  <div fxFlex="25" fxFlex.xs="100">
+    <div *ngIf="item && myForm" formToInject>
+      <form *ngIf="item" (ngSubmit)="onSubmit()" [formGroup]="myForm">
+
+        <div class="mb-1">
+          <!--<input id="tenantId" type="text" class="form-control" [(ngModel)]="item.tenantId" >-->
+          <md-select ngControl="especialidad" [(ngModel)]="item.especialidad" style="width: 80%" [placeholder]="formMetaData.properties.especialidad['x-ncg'].label"
+            [ngModelOptions]="{standalone: true}" (change)="buscar(item.especialidad)">
+            <md-option *ngFor="let opt of items1 | async" [value]="opt.nombre">{{opt.nombre}}</md-option>
+          </md-select>
+        </div>
+
+        <br>
+        <br>
+        <div class="mb-1">
+          <!--<input id="tenantId" type="text" class="form-control" [(ngModel)]="item.tenantId" >-->
+          <md-select ngControl="norma" [(ngModel)]="item.norma" style="width: 80%" [placeholder]="formMetaData.properties.norma['x-ncg'].label"
+            [ngModelOptions]="{standalone: true}" (change)="cambiar(item.norma)">
+            <md-option *ngFor="let opt of normas | async" [value]="opt.$key">{{opt.$key}}</md-option>
+          </md-select>
+        </div>
+        <br>
+        <br>
+        <!--valEmailAddressPattern - string-->
+        <div class="mb-1">
+          <md-input-container style="width: 50%">
+            <input mdInput id="pieza" #piezaInput [placeholder]="formMetaData.properties.pieza['x-ncg'].label" [formControl]="myForm.controls['pieza']"
+              [(ngModel)]="item.pieza" type="text" /> </md-input-container>
+          <small id="piezaErrorMsgs" *ngFor="let error of formMetaData.properties.pieza['x-ncg'].errors" class="md-text-warn">{{error.message}}</small>
+        </div>
+        <br>
+
+        <!--valEmailAddressPattern - string-->
+        <div class="mb-1">
+          <md-input-container style="width: 80%">
+            <input mdInput id="curacion" #curacionInput [placeholder]="formMetaData.properties.curacion['x-ncg'].label" [formControl]="myForm.controls['curacion']"
+              [(ngModel)]="item.curacion" type="text" /> </md-input-container>
+          <small id="curacionErrorMsgs" *ngFor="let error of formMetaData.properties.curacion['x-ncg'].errors" class="md-text-warn">{{error.message}}</small>
+        </div>
+        <br>
+
+        <br>
+        <div class="mb-1">
+          <!--<input id="tenantId" type="text" class="form-control" [(ngModel)]="item.tenantId" >-->
+          <md-select ngControl="paciente" [(ngModel)]="item.paciente" [placeholder]="formMetaData.properties.paciente['x-ncg'].label"
+            [ngModelOptions]="{standalone: true}" style="width: 98%">
+            <md-option *ngFor="let opt of pacientes | async" [value]="opt.nombre+' '+opt.paterno+' '+opt.materno">{{opt.nombre}} &nbsp; {{opt.paterno}} &nbsp; {{opt.materno}}</md-option>
+          </md-select>
+          <md-input-container>
+            <input mdInput type='text' placeholder='Introduzca CI paciente' (keyup)='updateFilter($event)' /> </md-input-container>
+        </div>
+        
+
+        <div *ngIf="!myForm.valid" class="mb-1 ui error message">Formulario es invalido</div>
+        <div class="content" fxLayout="row" fxLayout.xs="column" fxFlexFill>
+          <div fxFlex="50" fxFlex.xs="100">
+            <button md-raised-button color="primary" id="backButton" type="button" class="btn btn-secondary borde" (click)="goBack()" [attr.aria-label]="back">Atras</button>
+            <button md-raised-button color="primary" id="cancelButton" type="button" class="btn btn-secondary borde" (click)="onCancel()" [attr.aria-label]="cancel">Cancelar</button>
+          </div>
+          <div fxFlex="50" fxFlex.xs="100">
+            <button md-raised-button color="primary" id="resetButton" type="button" [disabled]="myForm.pristine" class="btn btn-secondary borde"
+              (click)="onReset()" [attr.aria-label]="reset">Reiniciar</button>
+            <button md-raised-button color="primary" id="submitButton" type="submit" [disabled]="myForm.invalid && isSubmitAttempted"
+              class="btn btn-primary borde" [attr.aria-label]="submit">Guardar</button>
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </div>
+  <div fxFlex="75" fxFlex.xs="100">
+    <md-card fxFlex="98">
+      <ngx-datatable class="material" [headerHeight]="50" [limit]="10" [scrollbarH]="true" [columnMode]="'force'" [footerHeight]="50"
+        [rowHeight]="'auto'" [rows]="curaciones | async">
+
+        <ngx-datatable-column name="Especialidad">
+          <ng-template let-value="row['tipo']" ngx-datatable-cell-template>
+            <strong>{{value}}</strong>
+          </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="Tratamiento">
+          <ng-template let-value="row['nombre']" ngx-datatable-cell-template>
+            <strong>{{value}}</strong>
+          </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="Norma">
+          <ng-template let-value="row['img']" ngx-datatable-cell-template>
+            <img src="../../../assets/images/{{value}}.png" class="md-card-image" alt="image caption" />
+          </ng-template>
+        </ngx-datatable-column>
+
+
+        <ngx-datatable-column name="Marcar">
+          <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+            <button id="editddButton" md-icon-button md-button-sm (click)="curacionInput.value=(row.nombre)" [attr.aria-label]="edit">
+              <img src="../assets/icons/ic_edit_black_24px.svg">
+            </button>
+          </ng-template>
+        </ngx-datatable-column>
+      </ngx-datatable>
+    </md-card>
+  </div>
+</div>
+
+
+<div layout="row" layout-margin class="main-div">
+  <md-card>
+    <table class="tabla">
+      <tr>
+        <td>18</td>
+        <td>17</td>
+        <td>16</td>
+        <td>15</td>
+        <td>14</td>
+        <td>13</td>
+        <td>12</td>
+        <td>11</td>
+        <td>21</td>
+        <td>22</td>
+        <td>23</td>
+        <td>24</td>
+        <td>25</td>
+        <td>26</td>
+        <td>27</td>
+        <td>28</td>
+      </tr>
+    </table>
+    <md-card-content *ngFor="let item of superior | async" class="linea">
+      <img src="../../../assets/images/dentadura-sup-{{item?.diente}}.png" class="md-card-image" alt="image caption" (click)="piezaInput.value=item?.id"
+      />
+    </md-card-content>
+
+  </md-card>
+</div>
+
+<div layout="row" layout-margin class="main-div">
+  <md-card>
+    <md-card-content *ngFor="let item of inferior | async" class="linea">
+      <img src="../../../assets/images/dentadura-inf-{{item?.diente}}.png" class="md-card-image" alt="image caption" (click)="piezaInput.value=item?.id"
+      />
+    </md-card-content>
+    <table class="tabla">
+      <tr>
+        <td>48</td>
+        <td>47</td>
+        <td>46</td>
+        <td>45</td>
+        <td>44</td>
+        <td>43</td>
+        <td>42</td>
+        <td>41</td>
+        <td>31</td>
+        <td>32</td>
+        <td>33</td>
+        <td>34</td>
+        <td>35</td>
+        <td>36</td>
+        <td>37</td>
+        <td>38</td>
+      </tr>
+    </table>
+  </md-card>
+</div>

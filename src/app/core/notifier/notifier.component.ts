@@ -11,7 +11,7 @@ import { Subscription } from 'rxjs/Subscription';
 })
 export class NotifierComponent implements OnDestroy, OnInit {
   private defaults = {
-    title: 'Hey fellow coders!',
+    title: 'Orthodent V1.0',
     message: `Let's go play with some code!`
   };
   private notifierElement: any;

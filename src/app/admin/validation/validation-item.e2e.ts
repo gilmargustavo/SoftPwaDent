@@ -4,8 +4,8 @@ import { AdminView } from '../admin.po';
 import { ValidationListPageObject } from './validation-list.po';
 import { ValidationItemPageObject } from './validation-item.po';
 import { Validation } from '../services/api/models/validation';
-import { ValidationService } from '../common/services/validation.service';
-import { E2eHelper } from '../common/e2eHelper';
+import { ValidationService } from '../controllers/services/validation.service';
+import { E2eHelper } from '../controllers/e2eHelper';
 import * as changeCase from 'change-case';
 
 describe('Validation Item', () => {

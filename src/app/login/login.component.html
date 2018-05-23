@@ -1,0 +1,39 @@
+﻿<div class="app-content">
+   
+    <div class="group">
+        
+        <form name="form" (ngSubmit)="login(myForm)" #myForm="ngForm">
+            <div align="center">
+                <a>
+                    <img src="../assets/icons/baseline-lock-24px.svg">
+                </a>
+            </div>
+            <md-input-container>
+                <input mdInput type="text" id="username" value name="username" [(ngModel)]="model.username" #username="ngModel" required mdTooltip="Completa este campo"
+                    mdTooltipPosition="right">
+                <md-placeholder>
+                    Usuario
+                </md-placeholder>
+            </md-input-container>
+            <br>
+            <br>
+            <md-input-container>
+                <input mdInput type="password" id="password" value name="password" [(ngModel)]="model.password" #password="ngModel"
+                    required mdTooltip="Completa este campo" mdTooltipPosition="right">
+                <md-placeholder>
+                    Password
+                </md-placeholder>
+            </md-input-container>
+            <br>
+            <br>
+            <button [disabled]="loading" md-raised-button color="primary">LOGIN</button>
+            <br>
+            <br>
+            <a [routerLink]="['/register']" class="btn btn-link">Register</a>
+            <span id="err">
+                <small>{{errorMsg}}</small>
+            </span>
+        </form>
+    </div>
+</div>
+

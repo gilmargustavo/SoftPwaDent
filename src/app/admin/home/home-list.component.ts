@@ -8,17 +8,17 @@ import { Title } from '@angular/platform-browser';
 import { DefaultTypeAndFormat } from './../services/api/models';
 
 // components
-import { BaseListComponent } from './../common/components';
+import { BaseListComponent } from './../controllers/components';
 
 import { Upload } from '../services/api/interfaces/upload';
 import { UploadService } from './../services/api/services/upload.service';
 import * as _ from "lodash";
 
 // pipes
-import { DisplayDataTransformPipe } from './../common/pipes';
+import { DisplayDataTransformPipe } from './../controllers/pipes';
 
 // services
-import { LocalStorageService, RestoreService } from './../common/services';
+import { LocalStorageService, RestoreService } from './../controllers/services';
 import { DataContext } from './../services/api/rest';
 import { EntityService, ModalDialogService, BusyIndicatorService, NotifierService } from '../../core';
 

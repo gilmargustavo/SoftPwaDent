@@ -1,7 +1,7 @@
 
 import { browser, by, element, protractor } from 'protractor';
-import { E2eHelper } from '../common/e2eHelper';
-import { BaseListPageObject } from '../common/base-list.po';
+import { E2eHelper } from '../controllers/e2eHelper';
+import { BaseListPageObject } from '../controllers/base-list.po';
 
 export class PacienteListPageObject extends BaseListPageObject {
 

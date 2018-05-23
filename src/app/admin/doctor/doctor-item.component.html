@@ -1,0 +1,61 @@
+<div *ngIf="item && myForm" formToInject>
+    <form *ngIf="item" (ngSubmit)="onSubmit()" [formGroup]="myForm">
+    
+      <!--id - integer-->
+      <div class="mb-1">
+        <md-input-container style="width: 100%"> <input mdInput id="ciInput" #idInput [placeholder]="formMetaData.properties.ci['x-ncg'].label" [formControl]="myForm.controls['ci']" [(ngModel)]="item.ci" type="number" /> </md-input-container> 
+       <small id="ciErrorMsgs" *ngFor="let error of formMetaData.properties.ci['x-ncg'].errors" class="md-text-warn">{{error.message}}</small>
+     </div>
+   
+    <!--valEmailAddressPattern - string-->
+      <div class="mb-1">
+        <md-input-container style="width: 100%"> <input mdInput id="nombre" #nombreInput [placeholder]="formMetaData.properties.nombre['x-ncg'].label" [formControl]="myForm.controls['nombre']" [(ngModel)]="item.nombre" type="text" /> </md-input-container> 
+        <small id="nombreErrorMsgs" *ngFor="let error of formMetaData.properties.nombre['x-ncg'].errors" class="md-text-warn">{{error.message}}</small>
+      </div>
+    
+      
+    <!--valMin0Max100Value - integer-->
+      <div class="mb-1">
+         <md-input-container style="width: 100%"> <input mdInput id="paterno" #paternoInput [placeholder]="formMetaData.properties.paterno['x-ncg'].label" [formControl]="myForm.controls['paterno']" [(ngModel)]="item.paterno" type="text" /> </md-input-container> 
+        <small id="paternoErrorMsgs" *ngFor="let error of formMetaData.properties.paterno['x-ncg'].errors" class="md-text-warn">{{error.message}}</small>
+      </div>
+    
+      
+    <!--valMin2Max8Length - string-->
+      <div class="mb-1">
+        <md-input-container style="width: 100%"> <input mdInput id="materno" #maternoInput [placeholder]="formMetaData.properties.materno['x-ncg'].label" [formControl]="myForm.controls['materno']" [(ngModel)]="item.materno" type="text" /> </md-input-container> 
+        <small id="maternoErrorMsgs" *ngFor="let error of formMetaData.properties.materno['x-ncg'].errors" class="md-text-warn">{{error.message}}</small>
+      </div>
+  
+   
+      <div class="mb-1">
+        <md-input-container style="width: 100%">
+          <input mdInput id="fechaNac" #fechaNacInput [placeholder]="formMetaData.properties.fechaNac['x-ncg'].label" 
+          [formControl]="myForm.controls['fechaNac']" [(ngModel)]="item.fechaNac" type="date" />
+        </md-input-container> 
+        <small id="fechaNacErrorMsgs" *ngFor="let error of formMetaData.properties.fechaNac['x-ncg'].errors" class="mat-text-warn">{{error.message}}</small>
+      </div>
+      
+    <!--valRequiredField - string-->
+      <div class="mb-1">
+        <md-input-container style="width: 100%"> <input mdInput id="celular" #celularInput [placeholder]="formMetaData.properties.celular['x-ncg'].label" [formControl]="myForm.controls['celular']" [(ngModel)]="item.celular" type="number" /> </md-input-container> 
+        <small id="celularErrorMsgs" *ngFor="let error of formMetaData.properties.celular['x-ncg'].errors" class="md-text-warn">{{error.message}}</small>
+      </div>
+<br>
+      <div class="mb-1">
+          <!--<input id="tenantId" type="text" class="form-control" [(ngModel)]="item.tenantId" >-->
+          <md-select ngControl="especialidad" [(ngModel)]="item.especialidad" [placeholder]="formMetaData.properties.especialidad['x-ncg'].label" [ngModelOptions]="{standalone: true}">
+            <md-option *ngFor="let opt of items1 | async" [value]="opt.nombre">{{opt.nombre}}</md-option>
+          </md-select>
+        </div>
+    
+    <br><br>
+      <div *ngIf="!myForm.valid" class="mb-1 ui error message">Formulario incompleto</div>
+      <div class="mb-1">
+        <button md-raised-button color="primary" id="backButton" type="button" class="btn btn-secondary" (click)="goBack()" [attr.aria-label]="back">Atras</button>
+        <button md-raised-button color="primary" id="cancelButton" type="button" class="btn btn-secondary" (click)="onCancel()" [attr.aria-label]="cancel">Cancelar</button>
+        <button md-raised-button color="primary" id="resetButton" type="button" [disabled]="myForm.pristine" class="btn btn-secondary" (click)="onReset()" [attr.aria-label]="reset">Reiniciar</button>
+        <button md-raised-button color="primary" id="submitButton" type="submit" [disabled]="myForm.invalid && isSubmitAttempted" class="btn btn-primary" [attr.aria-label]="submit">Guardar</button>
+      </div>
+    </form>
+  </div>

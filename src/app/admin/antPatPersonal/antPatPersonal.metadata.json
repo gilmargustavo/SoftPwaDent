@@ -1,0 +1,410 @@
+{
+  "description": "4. Customized in x-ncg, validations.",
+  "properties": {
+    "preg1": {
+      "type": "boolean",
+      "x-ncg": {
+        "label": "Alergias",
+        "placeholder": "Alergias",
+        "type": "boolean",
+        "view": {
+          "item": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          },
+          "list": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          }
+        },
+        "validations": {}
+      }
+    },
+    "preg2": {
+      "type": "boolean",
+      "x-ncg": {
+        "label": "Tóxicos",
+        "placeholder": "Tóxicos",
+        "type": "boolean",
+        "view": {
+          "item": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          },
+          "list": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          }
+        },
+        "validations": {}
+      }
+    },
+    "preg3": {
+      "type": "boolean",
+      "x-ncg": {
+        "label": "Infecciosos",
+        "placeholder": "Infecciosos",
+        "type": "boolean",
+        "view": {
+          "item": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          },
+          "list": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          }
+        },
+        "validations": {}
+      }
+    },
+    "preg4": {
+      "type": "boolean",
+      "x-ncg": {
+        "label": "Antecedentes quirúrgicos",
+        "placeholder": "Antecedentes quirúrgicos",
+        "type": "boolean",
+        "view": {
+          "item": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          },
+          "list": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          }
+        },
+        "validations": {}
+      }
+    },
+    "preg5": {
+      "type": "boolean",
+      "x-ncg": {
+        "label": "Internaciones",
+        "placeholder": "Internaciones",
+        "type": "boolean",
+        "view": {
+          "item": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          },
+          "list": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          }
+        },
+        "validations": {}
+      }
+    },
+    "preg6": {
+      "type": "boolean",
+      "x-ncg": {
+        "label": "Alteraciones o hemorragias",
+        "placeholder": "Alteraciones o hemorragias",
+        "type": "boolean",
+        "view": {
+          "item": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          },
+          "list": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          }
+        },
+        "validations": {}
+      }
+    },
+    "preg7": {
+      "type": "boolean",
+      "x-ncg": {
+        "label": "Toma medicamentos",
+        "placeholder": "Toma medicamentos",
+        "type": "boolean",
+        "view": {
+          "item": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          },
+          "list": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          }
+        },
+        "validations": {}
+      }
+    },
+    "preg8": {
+      "type": "boolean",
+      "x-ncg": {
+        "label": "Tratamientos prolongados",
+        "placeholder": "Tratamientos prolongados",
+        "type": "boolean",
+        "view": {
+          "item": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          },
+          "list": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          }
+        },
+        "validations": {}
+      }
+    },
+    "preg9": {
+      "type": "boolean",
+      "x-ncg": {
+        "label": "Ultimo tratamiento realizado",
+        "placeholder": "Ultimo tratamiento realizado",
+        "type": "boolean",
+        "view": {
+          "item": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          },
+          "list": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          }
+        },
+        "validations": {}
+      }
+    },
+    "preg10": {
+      "type": "boolean",
+      "x-ncg": {
+        "label": "Cardiovasculares",
+        "placeholder": "Cardiovasculares",
+        "type": "boolean",
+        "view": {
+          "item": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          },
+          "list": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          }
+        },
+        "validations": {}
+      }
+    },
+    "preg11": {
+      "type": "boolean",
+      "x-ncg": {
+        "label": "Respiratorios",
+        "placeholder": "Respiratorios",
+        "type": "boolean",
+        "view": {
+          "item": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          },
+          "list": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          }
+        },
+        "validations": {}
+      }
+    },
+    "preg12": {
+      "type": "boolean",
+      "x-ncg": {
+        "label": "Digestivos",
+        "placeholder": "Digestivos",
+        "type": "boolean",
+        "view": {
+          "item": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          },
+          "list": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          }
+        },
+        "validations": {}
+      }
+    },
+    "preg13": {
+      "type": "boolean",
+      "x-ncg": {
+        "label": "Neufrourinarios",
+        "placeholder": "Neufrourinarios",
+        "type": "boolean",
+        "view": {
+          "item": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          },
+          "list": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          }
+        },
+        "validations": {}
+      }
+    },
+    "preg14": {
+      "type": "boolean",
+      "x-ncg": {
+        "label": "Dermatológicos",
+        "placeholder": "Dermatológicos",
+        "type": "boolean",
+        "view": {
+          "item": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          },
+          "list": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          }
+        },
+        "validations": {}
+      }
+    },
+    "preg15": {
+      "type": "boolean",
+      "x-ncg": {
+        "label": "Diabetes",
+        "placeholder": "Diabetes",
+        "type": "boolean",
+        "view": {
+          "item": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          },
+          "list": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          }
+        },
+        "validations": {}
+      }
+    },
+    "preg16": {
+      "type": "boolean",
+      "x-ncg": {
+        "label": "Ginecológico",
+        "placeholder": "Ginecológico",
+        "type": "boolean",
+        "view": {
+          "item": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          },
+          "list": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          }
+        },
+        "validations": {}
+      }
+    },
+    "preg17": {
+      "type": "boolean",
+      "x-ncg": {
+        "label": "Epiléptico",
+        "placeholder": "Epiléptico",
+        "type": "boolean",
+        "view": {
+          "item": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          },
+          "list": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          }
+        },
+        "validations": {}
+      }
+    },
+    "preg18": {
+      "type": "boolean",
+      "x-ncg": {
+        "label": "Asma",
+        "placeholder": "Asma",
+        "type": "boolean",
+        "view": {
+          "item": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          },
+          "list": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          }
+        },
+        "validations": {}
+      }
+    },
+    "preg19": {
+      "type": "boolean",
+      "x-ncg": {
+        "label": "Hábitos",
+        "placeholder": "Hábitos",
+        "type": "boolean",
+        "view": {
+          "item": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          },
+          "list": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          }
+        },
+        "validations": {}
+      }
+    }
+    },
+  "type": "object",
+  "x-ncg": {
+    "isSelected": true,
+    "label": "Type Of Type",
+    "foreignKeys": []
+  }
+}

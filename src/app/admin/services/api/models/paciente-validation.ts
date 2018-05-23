@@ -9,7 +9,7 @@ import { IPacienteValidation } from './paciente-validation-interface';
 export class PacienteValidation implements IPacienteValidation {
 
   // keys
-  //id: number;
+  id: number;
 
   // properties
   ci:number;
@@ -17,6 +17,7 @@ export class PacienteValidation implements IPacienteValidation {
   paterno: string;
   materno: string;
   celular: number;
+  fechaNac:string;
 
 
 }

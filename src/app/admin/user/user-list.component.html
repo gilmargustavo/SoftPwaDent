@@ -1,4 +1,4 @@
-<div class="mb-1">
+<!--<div class="mb-1">
         <button id="addButton" md-raised-button color="primary" class="btn btn-secondary" [routerLink]="['new']">Nuevo Usuario</button>
       </div>
 <br><br>
@@ -22,4 +22,48 @@
       </div>
       <div>
   </div>
-  
+-->
+<div class="mb-1">
+  <button id="addButton" md-raised-button color="primary" class="btn btn-secondary" [routerLink]="['new']">Nuevo Usuario</button>
+</div>
+
+<br>
+<br>
+
+<md-input-container style="width: 100%">
+  <input mdInput type='text' style='margin:15px auto;width:30%;' placeholder='Introduzca apellido "Paterno"' (keyup)='updateFilter($event)'
+  /> </md-input-container>
+
+
+<ngx-datatable class="material" [headerHeight]="50" [limit]="10" [scrollbarH]="true" [columnMode]="'force'" [footerHeight]="50"
+  [rowHeight]="'auto'" [rows]="items | async">
+
+  <ngx-datatable-column name="Acciones" width="100">
+    <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+      <button id="editButton" md-icon-button md-button-sm (click)="edit(row)" [attr.aria-label]="edit">
+        <img src="../assets/icons/ic_edit_black_24px.svg">
+      </button>
+      <button id="deleteButton" md-icon-button md-button-sm (click)="deleteItem(row.$key)" [attr.aria-label]="delete">
+        <img src="../assets/icons/ic_delete_black_24px.svg">
+      </button>
+    </ng-template>
+  </ngx-datatable-column>
+
+  <ngx-datatable-column name="Usuario">
+    <ng-template let-value="row['usuario']" ngx-datatable-cell-template>
+      <strong>{{value}}</strong>
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column name="Usuario">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      <strong>{{row.paterno}}&nbsp;{{row.materno}}&nbsp;{{row.nombre}}</strong>
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column name="Password">
+    <ng-template let-value="row['password']" ngx-datatable-cell-template>
+      <strong>{{value}}</strong>
+    </ng-template>
+  </ngx-datatable-column>
+
+
+</ngx-datatable>

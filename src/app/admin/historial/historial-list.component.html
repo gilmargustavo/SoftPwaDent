@@ -1,0 +1,110 @@
+<div class="content" fxLayout="row" fxLayout.xs="column" fxFlexFill>
+  <div fxFlex="40" fxFlex.xs="55">
+    <button id="addButton" md-raised-button color="primary" class="btn btn-secondary borde" [routerLink]="['new']">Registrar Tratamiento</button>
+    <br>
+    <br>
+    <md-input-container style="width: 90%">
+      <input mdInput type='text' placeholder='Introduzca "CI" del paciente' (keyup)='updateFilter($event)' /> </md-input-container>
+    <br>
+    <md-input-container style="width: 90%">
+      <input mdInput type='text' placeholder='Introduzca apellido "paterno"' (keyup)='updateFilter1($event)' /> </md-input-container>
+  </div>
+</div>
+
+<div class="content" fxLayout="row" fxLayout.xs="column" fxFlexFill>
+
+  <div fxFlex="40" fxFlex.xs="100" style="margin-right:15px;">
+
+    <ngx-datatable class="material" [headerHeight]="50" [limit]="10" [scrollbarH]="true" [columnMode]="'force'" [footerHeight]="50"
+      [rowHeight]="'auto'" [rows]="items | async">
+
+      <ngx-datatable-column name="Paciente" [width]="250">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          {{row.paterno}}&nbsp;{{row.materno}}&nbsp;{{row.nombre}}
+        </ng-template>
+      </ngx-datatable-column>
+
+
+      <ngx-datatable-column name="Ver Seguimiento">
+        <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+          <button id="editButton" md-icon-button md-button-sm (click)="verificaHistorial(row.$key)" [attr.aria-label]="edit">
+            <img src="../assets/icons/baseline-insert_drive_file-24px.svg">
+          </button>
+          <button id="editButton" md-icon-button md-button-sm (click)="generarOdontograma(row.$key)" [attr.aria-label]="edit">
+            <img src="../assets/icons/diente1.svg">
+          </button>
+        </ng-template>
+      </ngx-datatable-column>
+    </ngx-datatable>
+  </div>
+
+  <div fxFlex="60" fxFlex.xs="100">
+    <div [hidden]="tab1">
+      <ngx-datatable class="material" [headerHeight]="50" [limit]="10" [scrollbarH]="true" [columnMode]="'force'" [footerHeight]="50"
+        [rowHeight]="'auto'" [rows]="historiales | async">
+
+        <ngx-datatable-column name="ESPECIALIDAD">
+          <ng-template let-value="row['especialidad']" ngx-datatable-cell-template>
+            {{value}}
+          </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="TRATAMIENTO">
+          <ng-template let-value="row['curacion']" ngx-datatable-cell-template>
+            <strong> {{value}}</strong>
+          </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="NORMA">
+          <ng-template let-value="row['norma']" ngx-datatable-cell-template>
+            {{value}}
+          </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="PIEZA">
+          <ng-template let-value="row['pieza']" ngx-datatable-cell-template>
+            <strong>{{value}}</strong>
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Acciones">
+          <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+            <button id="editButton" md-icon-button md-button-sm (click)="editar(row)" [attr.aria-label]="edit">
+              <img src="../assets/icons/baseline-border_color-24px.svg">
+            </button>
+          </ng-template>
+        </ngx-datatable-column>
+      </ngx-datatable>
+
+
+
+      <div layout="row" layout-margin class="main-div" style="margin-top: 10px;">
+          <md-card style="margin-bottom: -10px;">
+            <md-card-content *ngFor="let item of dientesPacienteSup | async" class="linea">
+              
+              <h5 style="border: 1px solid black;">{{item?.id}}</h5>
+              <img src="../../../assets/images/norma2/dentadura-sup-{{item?.diente}}.png" class="md-card-image" height="87" width="31" alt="image caption" 
+              />
+              <h5 style="border: 6px solid red;margin-top: -2px;" *ngIf="item?.estado=='Malo'"></h5>
+              <h5 style="border: 6px solid blue;margin-top: -2px;" *ngIf="item?.estado=='Bueno'"></h5>
+              <h5 style="border: 6px solid Green;margin-top: -2px;" *ngIf="item?.estado=='Temporal'"></h5>
+              <h5 style="border: 6px solid orange;margin-top: -2px;" *ngIf="item?.estado=='MaloAmalgama'"></h5>
+            </md-card-content>
+          </md-card>
+        </div>
+    
+        <div layout="row" layout-margin class="main-div">
+          <md-card style="margin-top: -10px;">
+            <md-card-content *ngFor="let item of dientesPacienteInf | async" class="linea">
+                <h5 style="border: 6px solid red;margin-bottom: 3px;" *ngIf="item?.estado=='Malo'"></h5>
+                <h5 style="border: 6px solid blue;margin-bottom: 3px;" *ngIf="item?.estado=='Bueno'"></h5>
+                <h5 style="border: 6px solid Green;margin-bottom: 3px;" *ngIf="item?.estado=='Temporal'"></h5>
+                <h5 style="border: 6px solid orange;margin-bottom: 3px;" *ngIf="item?.estado=='MaloAmalgama'"></h5>
+              <img src="../../../assets/images/norma2/dentadura-inf-{{item?.diente}}.png" class="md-card-image" height="87" width="31" alt="image caption" 
+              />
+              <h5 style="border: 1px solid black;">{{item?.id}}</h5>
+            </md-card-content>
+          </md-card>
+        </div>
+    </div>
+  </div>
+</div>

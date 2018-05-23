@@ -1,6 +1,6 @@
 
 import { browser, by, element } from 'protractor';
-import { E2eHelper } from './common/e2eHelper';
+import { E2eHelper } from './controllers/e2eHelper';
 
 export class AdminView {
   helper = new E2eHelper();

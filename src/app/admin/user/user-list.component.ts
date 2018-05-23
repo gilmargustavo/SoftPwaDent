@@ -7,20 +7,21 @@ import { Title } from '@angular/platform-browser';
 // api
 import { User } from './../services/api/models';
 
-import { AfoListObservable} from 'angularfire2-offline/database';
 
 import { Upload } from '../services/api/interfaces/upload';
 import { UploadService } from './../services/api/services/upload.service';
 
+import { AfoListObservable, AngularFireOfflineDatabase ,AfoObjectObservable} from 'angularfire2-offline/database';
+
 // components
-import { BaseListComponent } from './../common/components';
+import { BaseListComponent } from './../controllers/components';
 
 
 // pipes
-import { DisplayDataTransformPipe } from './../common/pipes';
+import { DisplayDataTransformPipe } from './../controllers/pipes';
 
 // services
-import { LocalStorageService, RestoreService } from './../common/services';
+import { LocalStorageService, RestoreService } from './../controllers/services';
 import { DataContext } from './../services/api/rest';
 import { EntityService, ModalDialogService, BusyIndicatorService, NotifierService } from '../../core';
 
@@ -36,8 +37,13 @@ export class UserListComponent extends BaseListComponent<User>  {
   public formMetaData: any = null;
   uploads: AfoListObservable<Upload[]>;
   showSpinner = true;
+
+  items: AfoListObservable<any[]>;
+  temp: AfoListObservable<any[]>;
+  paciente: AfoObjectObservable<any>;
+
   
-  constructor(protected titleService: Title,
+  constructor(protected afoDatabase:AngularFireOfflineDatabase, protected titleService: Title,
     protected entityService: EntityService, 
     protected modalDialogService: ModalDialogService, 
     protected busyIndicatorService: BusyIndicatorService, 
@@ -50,6 +56,7 @@ export class UserListComponent extends BaseListComponent<User>  {
     super(titleService, entityService, modalDialogService, busyIndicatorService, notifierService, datacontextService.UserApi, router, activatedRoute);
 
     this.formMetaData = require('./user.metaData.json'); 
+    this.items = afoDatabase.list('/usuarios');
     this.componentName = 'UserListComponent';
 
     this.generateFilterModel();

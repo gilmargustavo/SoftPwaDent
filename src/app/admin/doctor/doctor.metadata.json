@@ -1,0 +1,186 @@
+{
+  "description": "Filiación de pacientes",
+  "properties": {
+    "ci": {
+      "format": "int32",
+      "type": "integer",
+      "x-ncg": {
+        "label": "CI",
+        "view": {
+          "item": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 100
+          },
+          "list": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 100
+          }
+        },
+        "placeholder": "CI",
+        "validations": {
+          "required": {
+            "value": true
+          }
+        },
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "nombre": {
+      "type": "string",
+      "x-ncg": {
+        "label": "Nombre",
+        "view": {
+          "item": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          },
+          "list": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          }
+        },
+        "placeholder": "Nombre",
+        "validations": {
+          "required": {
+            "value": true
+          }
+        },
+        "type": "string"
+      }
+    },
+    "paterno": {
+      "type": "string",
+      "x-ncg": {
+        "label": "Apellido Paterno",
+        "view": {
+          "item": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          },
+          "list": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          }
+        },
+        "placeholder": "Apellido Paterno",
+        "validations": {
+          "required": {
+            "value": true
+          }
+        },
+        "type": "string"
+      }
+    },
+    "materno": {
+      "type": "string",
+      "x-ncg": {
+        "label": "Apellido Materno",
+        "view": {
+          "item": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          },
+          "list": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          }
+        },
+        "placeholder": "Apellido Materno",
+        "validations": {
+        },
+        "type": "string"
+      }
+    },
+    "celular": {
+      "format": "int32",
+      "type": "integer",
+      "x-ncg": {
+        "label": "Celular",
+        "view": {
+          "item": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 100
+          },
+          "list": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 100
+          }
+        },
+        "placeholder": "Celular",
+        "validations": {},
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "especialidad": {
+      "default": "Especialidad",
+      "description": "Especialidad",
+      "title": "Especialidad",
+      "type": "string",
+      "x-ncg": {
+        "label": "Especialidad",
+        "view": {
+          "item": {
+            "isHidden": false,
+            "isGenerated": true,
+            "order": 1
+          },
+          "list": {
+            "isHidden": false,
+            "isGenerated": true,
+            "order": 1
+          }
+        },
+        "placeholder": "Especialidad",
+        "validations": {
+        }
+      }
+    },
+    "fechaNac": {
+         "format": "date-time",
+         "type": "string",
+         "x-ncg": {
+            "label": "Fecha Nacimiento",
+            "view": {
+               "item": {
+                  "isHidden": false,
+                  "isGenerated": true,
+                  "order": 1
+               },
+               "list": {
+                  "isHidden": false,
+                  "isGenerated": true,
+                  "order": 1
+               }
+            },
+            "placeholder": "Fecha Nacimiento",
+            "validations": {},
+            "type": "string",
+            "format": "date-time"
+         }
+      }
+  },
+  "required": [
+    "ci",
+    "nombre",
+    "paterno"
+  ],
+  "type": "object",
+  "x-ncg": {
+    "order": 4,
+    "label": "Pacientes",
+    "isSelected": true,
+    "foreignKeys": []
+  }
+}

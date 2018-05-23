@@ -5,10 +5,12 @@ import { Injectable } from '@angular/core';
 import { Tenant } from './../models';
 import { AfoListObservable, AngularFireOfflineDatabase,AfoObjectObservable } from 'angularfire2-offline/database';
 // services
-import { BaseApiLocal } from './../../../common/services/api/BaseApiLocal';
-import { LocalQueryHelper } from './../../../common/services/api/LocalQueryHelper';
+import { BaseApiLocal } from './../../../controllers/services/api/BaseApiLocal';
+import { LocalQueryHelper } from './../../../controllers/services/api/LocalQueryHelper';
 
 'use strict';
+
+import {MdSnackBar, MdSnackBarConfig} from '@angular/material';
 
 @Injectable()
 export class TenantApiLocal extends BaseApiLocal<Tenant> {
@@ -16,8 +18,8 @@ export class TenantApiLocal extends BaseApiLocal<Tenant> {
   public keyName: string = 'id';
   public resourceName: string = 'tenant';
 
-  constructor(_LocalQueryHelper: LocalQueryHelper,afoDatabase: AngularFireOfflineDatabase) {
-    super(_LocalQueryHelper,afoDatabase);
+  constructor(_LocalQueryHelper: LocalQueryHelper,afoDatabase: AngularFireOfflineDatabase,public snackBar: MdSnackBar) {
+    super(_LocalQueryHelper,afoDatabase,snackBar);
 
     this.setListData();
   }

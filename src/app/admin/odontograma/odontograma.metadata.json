@@ -1,0 +1,146 @@
+{
+  "default": "some default",
+  "description": "5. Advanced custom settings. (label, placeholder, tooltip, order, isGenerated, isDisplay)",
+  "properties": {
+    "especialidad": {
+      "default": "Especialidad",
+      "description": "Especialidad",
+      "title": "Especialidad",
+      "type": "string",
+      "x-ncg": {
+        "label": "Especialidad",
+        "view": {
+          "item": {
+            "isHidden": false,
+            "isGenerated": true,
+            "order": 1
+          },
+          "list": {
+            "isHidden": false,
+            "isGenerated": true,
+            "order": 1
+          }
+        },
+        "placeholder": "Especialidad",
+        "validations": {
+        }
+      }
+    },
+    "norma": {
+      "default": "Norma",
+      "description": "Norma",
+      "title": "Norma",
+      "type": "string",
+      "x-ncg": {
+        "label": "Norma",
+        "view": {
+          "item": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          },
+          "list": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          }
+        },
+        "placeholder": "Norma",
+        "validations": {
+        }
+      }
+    },
+    "pieza": {
+      "default": "Pieza",
+      "description": "Pieza",
+      "title": "Pieza",
+      "type": "string",
+      "x-ncg": {
+        "label": "Pieza",
+        "view": {
+          "item": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 100
+          },
+          "list": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 100
+          }
+        },
+        "placeholder": "Pieza",
+        "validations": {
+          "required": {
+            "value": true
+          }
+      }
+    }
+  },
+  "paciente": {
+      "default": "paciente",
+      "description": "paciente",
+      "title": "Paciente",
+      "type": "string",
+      "x-ncg": {
+        "label": "Paciente",
+        "view": {
+          "item": {
+            "isHidden": false,
+            "isGenerated": true,
+            "order": 1
+          },
+          "list": {
+            "isHidden": false,
+            "isGenerated": true,
+            "order": 1
+          }
+        },
+        "placeholder": "Paciente",
+        "validations": {
+        }
+      }
+    },
+    "curacion": {
+      "default": "Curación",
+      "description": "Curación",
+      "title": "Curación",
+      "type": "string",
+      "x-ncg": {
+        "label": "Curación",
+        "view": {
+          "item": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          },
+          "list": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          }
+        },
+        "placeholder": "Curación",
+        "validations": {
+          "required": {
+            "value": true
+          }
+      }
+    }
+  }
+  },
+  "required": [
+    "especialidad",
+    "norma",
+    "pieza",
+    "curacion"
+  ],
+  "title": "some title",
+  "type": "object",
+  "x-ncg": {
+    "order": 5,
+    "isSelected": true,
+    "label": "Tenant",
+    "foreignKeys": []
+  }
+}

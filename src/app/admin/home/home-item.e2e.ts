@@ -4,8 +4,8 @@ import { AdminView } from '../admin.po';
 import { HomeListPageObject } from './home-list.po';
 import { HomeItemPageObject } from './home-item.po';
 import { DefaultTypeAndFormat } from '../services/api/models/default-type-and-format';
-import { ValidationService } from '../common/services/validation.service';
-import { E2eHelper } from '../common/e2eHelper';
+import { ValidationService } from '../controllers/services/validation.service';
+import { E2eHelper } from '../controllers/e2eHelper';
 import * as changeCase from 'change-case';
 
 describe('Default Type And Format Item', () => {

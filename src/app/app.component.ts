@@ -19,6 +19,7 @@ md-sidenav {
 
 .content {
   padding: 12px;
+  background-color:"#000";
 }
 
 /deep/ md-icon.avatar {

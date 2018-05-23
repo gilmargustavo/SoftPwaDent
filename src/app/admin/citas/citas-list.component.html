@@ -1,0 +1,110 @@
+<div class="content" fxLayout="row" fxLayout.xs="column" fxFlexFill>
+  <div fxFlex="40" fxFlex.xs="55">
+    <button id="addButton" md-raised-button color="primary" class="btn btn-secondary borde" [routerLink]="['new']">Nueva Cita</button>
+    <button id="addButton" md-raised-button color="primary" class="btn btn-secondary borde" (click)="regPaciente()">Registrar Paciente</button>
+    <br>
+    <br>
+
+  </div>
+</div>
+
+<div class="content" fxLayout="row" fxLayout.xs="column" fxFlexFill>
+  <div fxFlex="50" fxFlex.xs="100" style="margin-right:15px;">
+
+    <button id="editButton" md-icon-button md-button-sm (click)="paci()" [attr.aria-label]="edit">
+      <img src="../assets/icons/paciente.svg">
+    </button>
+
+    <button id="editButton" md-icon-button md-button-sm (click)="doct()" [attr.aria-label]="edit">
+      <img src="../assets/icons/doctor.svg">
+    </button>
+
+
+    <div [hidden]="pac">
+      <md-input-container style="width: 100%">
+        <input mdInput type='text' placeholder='Introduzca CI paciente' (keyup)='updateFilter($event)' /> </md-input-container>
+      <ngx-datatable class="material" [headerHeight]="50" [limit]="10" [scrollbarH]="true" [columnMode]="'force'" [footerHeight]="50"
+        [rowHeight]="'auto'" [rows]="pacientes | async">
+
+        <ngx-datatable-column name="Paciente" [width]="250">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            {{row.paterno}}&nbsp;{{row.materno}}&nbsp;{{row.nombre}}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Celular">
+          <ng-template let-value="row['celular']" ngx-datatable-cell-template>
+            {{value}}
+          </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="Ver Citas">
+          <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+            <button id="editButton" md-icon-button md-button-sm (click)="buscarCita(row.$key)" [attr.aria-label]="edit">
+              <img src="../assets/icons/ic_alarm_black_24px1.svg">
+            </button>
+          </ng-template>
+        </ngx-datatable-column>
+      </ngx-datatable>
+    </div>
+
+    <div [hidden]="doc">
+      <md-input-container style="width: 100%">
+        <input mdInput type='text' placeholder='Introduzca CI doctor' (keyup)='updateFilter2($event)' /> </md-input-container>
+      <ngx-datatable class="material" [headerHeight]="50" [limit]="10" [scrollbarH]="true" [columnMode]="'force'" [footerHeight]="50"
+        [rowHeight]="'auto'" [rows]="doctores | async">
+
+        <ngx-datatable-column name="Doctor" [width]="250">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            {{row.paterno}}&nbsp;{{row.materno}}&nbsp;{{row.nombre}}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Celular">
+          <ng-template let-value="row['celular']" ngx-datatable-cell-template>
+            {{value}}
+          </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="Ver Citas">
+          <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+            <button id="editButton" md-icon-button md-button-sm (click)="buscarCita1(row.$key)" [attr.aria-label]="edit">
+              <img src="../assets/icons/ic_alarm_black_24px1.svg">
+            </button>
+          </ng-template>
+        </ngx-datatable-column>
+      </ngx-datatable>
+    </div>
+  </div>
+
+  <div fxFlex="50" fxFlex.xs="100">
+
+
+    <md-input-container style="width: 100%">
+      <input mdInput type='text' placeholder='Introduzca FECHA cita' (keyup)='updateFilter1($event)' /> </md-input-container>
+    <ngx-datatable class="material" [headerHeight]="50" [limit]="10" [scrollbarH]="true" [columnMode]="'force'" [footerHeight]="50"
+      [rowHeight]="'auto'" [rows]="citas | async">
+
+      <ngx-datatable-column name="Fecha">
+        <ng-template let-value="row['fecha']" ngx-datatable-cell-template>
+          <strong>{{value}}</strong>
+        </ng-template>
+      </ngx-datatable-column>
+
+      <ngx-datatable-column name="Hora">
+        <ng-template let-value="row['hora']" ngx-datatable-cell-template>
+          <strong>{{value}}</strong>
+        </ng-template>
+      </ngx-datatable-column>
+
+      <ngx-datatable-column name="Acciones">
+        <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+          <button id="editButton" md-icon-button md-button-sm (click)="edit(row)" [attr.aria-label]="edit">
+            <img src="../assets/icons/ic_edit_black_24px.svg">
+          </button>
+          <button id="deleteButton" md-icon-button md-button-sm (click)="deleteItem(row.$key)" [attr.aria-label]="delete">
+            <img src="../assets/icons/ic_delete_black_24px.svg">
+          </button>
+        </ng-template>
+      </ngx-datatable-column>
+    </ngx-datatable>
+  </div>
+</div>

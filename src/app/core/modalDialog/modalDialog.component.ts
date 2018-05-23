@@ -19,10 +19,10 @@ export class ModalDialogComponent implements OnInit {
   positiveOnClick: (e: any) => void;
 
   private defaults = {
-    title: 'Confirmation',
+    title: 'Confirmación',
     message: 'Do you want to cancel your changes?',
-    cancelText: 'Cancel',
-    okText: 'OK'
+    cancelText: 'Cancelar',
+    okText: 'Aceptar'
   };
   private modalElement: any;
   private cancelButton: any;

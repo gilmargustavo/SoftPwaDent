@@ -6,19 +6,21 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminComponent } from './admin.component';
 
 import { HomeComponent, HomeItemComponent, HomeListComponent } from './home';
-import { DefaultValidationComponent, DefaultValidationItemComponent, DefaultValidationListComponent } from './defaultValidation';
-import { NcgOtherComponent, NcgOtherItemComponent, NcgOtherListComponent } from './ncgOther';
-import { NcgTypeAndFormatComponent, NcgTypeAndFormatItemComponent, NcgTypeAndFormatListComponent } from './ncgTypeAndFormat';
-import { PacienteComponent, PacienteItemComponent, PacienteListComponent} from './paciente';
-import { SomeItemComponent, SomeItemItemComponent, SomeItemListComponent } from './someItem';
-import { TenantComponent, TenantItemComponent, TenantListComponent } from './tenant';
-import { AntPatPersonaleComponent, AntPatPersonalItemComponent, AntPatPersonalListComponent } from './antPatPesonal';
+import { HistorialComponent, HistorialItemComponent, HistorialListComponent } from './historial';
+import { OdontogramaComponent, OdontogramaItemComponent, OdontogramaListComponent } from './odontograma';
+import { AntPatFamiliarComponent, AntPatFamiliarItemComponent, AntPatFamiliarListComponent } from './antPatFamiliar';
+import { PacienteComponent, PacienteItemComponent, PacienteListComponent, AntItemComponent } from './paciente';
+import { DoctorComponent, DoctorItemComponent, DoctorListComponent } from './doctor';
+import { CitasComponent, CitasItemComponent, CitasListComponent } from './citas';
+import { AntPatPersonaleComponent, AntPatPersonalItemComponent, AntPatPersonalListComponent } from './antPatPersonal';
 import { UserComponent, UserItemComponent, UserListComponent } from './user';
 import { ValidationComponent, ValidationItemComponent, ValidationListComponent } from './validation';
+import { LoginComponent, LoginItemComponent, LoginListComponent } from './login';
+import { FiliacionComponent, FiliacionItemComponent, FiliacionListComponent } from './filiacion';
 
 const AdminRoutes: Routes = [
   {
-    path: '', component: AdminComponent,
+    path: 'admin', component: AdminComponent,
     children: [
       {
         path: 'home', component: HomeComponent,
@@ -27,46 +29,62 @@ const AdminRoutes: Routes = [
           { path: ':id', component: HomeItemComponent }
         ]
       },
+
       {
-        path: 'defaultValidation', component: DefaultValidationComponent,
+        path: 'login', component: LoginComponent,
         children: [
-          { path: '', component: DefaultValidationListComponent },
-          { path: ':id', component: DefaultValidationItemComponent }
+          { path: '', component: LoginListComponent },
+          { path: 'nuevo', component: LoginItemComponent }
+        ]
+      },
+
+      {
+        path: 'historial', component: HistorialComponent,
+        children: [
+          { path: '', component: HistorialListComponent },
+          { path: ':$key', component: HistorialItemComponent }
         ]
       },
       {
-        path: 'ncgOther', component: NcgOtherComponent,
+        path: 'odontograma', component: OdontogramaComponent,
         children: [
-          { path: '', component: NcgOtherListComponent },
-          { path: ':id', component: NcgOtherItemComponent }
+          { path: '', component: OdontogramaListComponent },
+          { path: ':$key', component: OdontogramaItemComponent }
         ]
       },
       {
-        path: 'ncgTypeAndFormat', component: NcgTypeAndFormatComponent,
+        path: 'antPatFamiliar', component: AntPatFamiliarComponent,
         children: [
-          { path: '', component: NcgTypeAndFormatListComponent },
-          { path: ':id', component: NcgTypeAndFormatItemComponent }
+          { path: '', component: AntPatFamiliarListComponent },
+          { path: ':$key', component: AntPatFamiliarItemComponent }
         ]
       },
       {
         path: 'paciente', component: PacienteComponent,
         children: [
           { path: '', component: PacienteListComponent },
-          { path: ':$key', component: PacienteItemComponent }
+          { path: ':$key', component: PacienteItemComponent },
+          {
+            path: 'odontograma', component: PacienteComponent,
+            children: [
+              { path: '', component: AntItemComponent },
+              { path: ':$key', component: AntItemComponent }
+            ]
+          }
         ]
       },
       {
-        path: 'someItem', component: SomeItemComponent,
+        path: 'doctor', component: DoctorComponent,
         children: [
-          { path: '', component: SomeItemListComponent },
-          { path: ':id', component: SomeItemItemComponent }
+          { path: '', component: DoctorListComponent },
+          { path: ':$key', component: DoctorItemComponent }
         ]
       },
       {
-        path: 'tenant', component: TenantComponent,
+        path: 'citas', component: CitasComponent,
         children: [
-          { path: '', component: TenantListComponent },
-          { path: ':id', component: TenantItemComponent }
+          { path: '', component: CitasListComponent },
+          { path: ':$key', component: CitasItemComponent }
         ]
       },
       {
@@ -90,12 +108,21 @@ const AdminRoutes: Routes = [
           { path: ':id', component: ValidationItemComponent }
         ]
       },
+
+      {
+        path: 'filiacion', component: FiliacionComponent,
+        children: [
+          { path: '', component: FiliacionListComponent },
+          { path: ':$key', component: FiliacionItemComponent }
+        ]
+      },
+
       // set the default path here
       {
         path: '',
         component: HomeComponent
       },
-      
+
       // { path: '',   redirectTo: '/admin/defaultTypeAndFormat', pathMatch: 'full' }
     ]
   }
@@ -110,13 +137,15 @@ export class AdminRoutingModule { }
 
 export const routedComponents = [AdminComponent
   , HomeComponent, HomeItemComponent, HomeListComponent
-  , DefaultValidationComponent, DefaultValidationItemComponent, DefaultValidationListComponent
-  , NcgOtherComponent, NcgOtherItemComponent, NcgOtherListComponent
-  , NcgTypeAndFormatComponent, NcgTypeAndFormatItemComponent, NcgTypeAndFormatListComponent
-  , PacienteComponent, PacienteItemComponent, PacienteListComponent
-  , SomeItemComponent, SomeItemItemComponent, SomeItemListComponent
-  , TenantComponent, TenantItemComponent, TenantListComponent
+  , HistorialComponent, HistorialItemComponent, HistorialListComponent
+  , OdontogramaComponent, OdontogramaItemComponent, OdontogramaListComponent
+  , AntPatFamiliarComponent, AntPatFamiliarItemComponent, AntPatFamiliarListComponent
+  , PacienteComponent, PacienteItemComponent, PacienteListComponent, AntItemComponent
+  , DoctorComponent, DoctorItemComponent, DoctorListComponent
+  , CitasComponent, CitasItemComponent, CitasListComponent
   , AntPatPersonaleComponent, AntPatPersonalItemComponent, AntPatPersonalListComponent
   , UserComponent, UserItemComponent, UserListComponent
+  , LoginComponent, LoginItemComponent, LoginListComponent
+  , FiliacionComponent, FiliacionItemComponent, FiliacionListComponent
   , ValidationComponent, ValidationItemComponent, ValidationListComponent
 ];

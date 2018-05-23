@@ -1,0 +1,95 @@
+{
+  "description": "4. Customized in x-ncg, validations.",
+  "properties": {
+    "preg1": {
+      "type": "boolean",
+      "x-ncg": {
+        "label": "Diabetes",
+        "placeholder": "Diabetes",
+        "type": "boolean",
+        "view": {
+          "item": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          },
+          "list": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          }
+        },
+        "validations": {}
+      }
+    },
+    "preg2": {
+      "type": "boolean",
+      "x-ncg": {
+        "label": "Tuberculosis",
+        "placeholder": "Tuberculosis",
+        "type": "boolean",
+        "view": {
+          "item": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          },
+          "list": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          }
+        },
+        "validations": {}
+      }
+    },
+    "preg3": {
+      "type": "boolean",
+      "x-ncg": {
+        "label": "Hipertensión",
+        "placeholder": "Hipertensión",
+        "type": "boolean",
+        "view": {
+          "item": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          },
+          "list": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          }
+        },
+        "validations": {}
+      }
+    },
+    "preg4": {
+      "type": "boolean",
+      "x-ncg": {
+        "label": "Cardiovascular",
+        "placeholder": "Cardiovascular",
+        "type": "boolean",
+        "view": {
+          "item": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          },
+          "list": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          }
+        },
+        "validations": {}
+      }
+    }
+    },
+  "type": "object",
+  "x-ncg": {
+    "isSelected": true,
+    "label": "Type Of Type",
+    "foreignKeys": []
+  }
+}

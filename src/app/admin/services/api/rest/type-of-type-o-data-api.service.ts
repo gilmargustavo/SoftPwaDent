@@ -8,9 +8,9 @@ import * as Rx from 'rxjs';
 import { AfoListObservable, AngularFireOfflineDatabase,AfoObjectObservable } from 'angularfire2-offline/database';
 
 // services
-import { BaseApi } from './../../../common/services/api/BaseApi';
-import { Error } from './../../../common/services/api/Error';
-import { HttpHelper } from './../../../common/services/api/HttpHelper';
+import { BaseApi } from './../../../controllers/services/api/BaseApi';
+import { Error } from './../../../controllers/services/api/Error';
+import { HttpHelper } from './../../../controllers/services/api/HttpHelper';
 
 import { AntPatPersonal } from './../models';
 

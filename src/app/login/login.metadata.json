@@ -1,0 +1,72 @@
+{
+  "default": "some default",
+  "description": "5. Advanced custom settings. (label, placeholder, tooltip, order, isGenerated, isDisplay)",
+  "properties": {
+    "usuario": {
+      "default": "usuario",
+      "description": "usuario",
+      "title": "usuario",
+      "type": "string",
+      "x-ncg": {
+        "label": "usuario",
+        "view": {
+          "item": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 100
+          },
+          "list": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 100
+          }
+        },
+        "placeholder": "usuario",
+        "validations": {
+          "required": {
+            "value": true
+          }
+      }
+    }
+  },
+    "password": {
+      "default": "password",
+      "description": "password",
+      "title": "password",
+      "type": "string",
+      "x-ncg": {
+        "label": "password",
+        "view": {
+          "item": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          },
+          "list": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 1
+          }
+        },
+        "placeholder": "password",
+        "validations": {
+          "required": {
+            "value": true
+          }
+      }
+    }
+  }
+  },
+  "required": [
+    "usuario",
+    "password"
+  ],
+  "title": "some title",
+  "type": "object",
+  "x-ncg": {
+    "order": 5,
+    "isSelected": true,
+    "label": "Tenant",
+    "foreignKeys": []
+  }
+}

@@ -4,8 +4,8 @@ import { AdminView } from '../admin.po';
 import { UserListPageObject } from './user-list.po';
 import { UserItemPageObject } from './user-item.po';
 import { User } from '../services/api/models/user';
-import { ValidationService } from '../common/services/validation.service';
-import { E2eHelper } from '../common/e2eHelper';
+import { ValidationService } from '../controllers/services/validation.service';
+import { E2eHelper } from '../controllers/e2eHelper';
 import * as changeCase from 'change-case';
 
 describe('User Item', () => {

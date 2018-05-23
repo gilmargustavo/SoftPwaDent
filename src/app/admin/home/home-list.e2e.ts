@@ -2,7 +2,7 @@
 import { browser, by, element } from 'protractor';
 import { AdminView } from '../admin.po';
 import { HomeListPageObject } from './home-list.po';
-import { E2eHelper } from '../common/e2eHelper';
+import { E2eHelper } from '../controllers/e2eHelper';
 
 describe('Default Type And Format List', () => {
   describe('As a user, I', () => {

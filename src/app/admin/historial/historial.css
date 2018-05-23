@@ -1,0 +1,45 @@
+
+::ng-deep snack-bar-container.offline {
+  background: red;
+}
+
+.center{
+  width: 75%;
+}
+
+.main-div{
+  margin-top:0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.md-card-image{
+  border: 1px dashed #33BEFF;       
+}
+
+.md-card-image:hover{
+  transform : scale(1.1);
+  -moz-transform : scale(1.1);    
+  -webkit-transform : scale(1.1);   
+  -o-transform : scale(1.1);        
+}
+
+.tabla{
+  width:100%;
+  text-align:center;
+} 
+
+.linea{
+  display:inline-block;
+  margin:2px;
+}
+
+.borde{
+  margin-top:10px;
+}
+
+md-sidenav {
+  width: 180px;
+  background-color: rgb(71, 73, 75);
+}

@@ -1,6 +1,6 @@
 // angular
 import { Component, Input } from '@angular/core';
-import { Location } from '@angular/common';
+import { Location,DatePipe } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -10,13 +10,15 @@ import { DefaultTypeAndFormat } from './../services/api/models';
 
 import { AfoListObservable, AngularFireOfflineDatabase } from 'angularfire2-offline/database';
 
+import {MdSnackBar, MdSnackBarConfig} from '@angular/material';
+
 // providers/services
-import { LocalStorageService, RestoreService, ValidationService } from './../common/services';
+import { LocalStorageService, RestoreService, ValidationService } from './../controllers/services';
 import { DataContext } from './../services/api/rest';
 import { EntityService, ModalDialogService, BusyIndicatorService, NotifierService } from '../../core';
 
 // components
-import { BaseItemComponent } from './../common/components/base-item.component';
+import { BaseItemComponent } from './../controllers/components/base-item.component';
 
 // other
 import * as moment from 'moment';
@@ -31,7 +33,7 @@ export class HomeItemComponent extends BaseItemComponent<DefaultTypeAndFormat> {
 
   @Input() myForm: FormGroup;
 
-  constructor(
+  constructor(protected snackBar: MdSnackBar,protected datePipe:DatePipe,
     protected datacontextService: DataContext,    
     protected titleService: Title,
     protected entityService: EntityService, 
@@ -46,7 +48,7 @@ export class HomeItemComponent extends BaseItemComponent<DefaultTypeAndFormat> {
     protected validationService: ValidationService,
     protected afoDatabase: AngularFireOfflineDatabase
   ) {
-    super(titleService,
+    super(snackBar,datePipe,titleService,
       datacontextService.DefaultTypeAndFormatApi,
       entityService, 
       modalDialogService, 

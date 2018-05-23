@@ -27,22 +27,20 @@
   width: 100%;
   z-index: 1;
   padding: 2px;
-  position: relative;
-  /*background-color: #f06292;
-  background-color: rgb(103,58,183);
-  background-color: rgb(83,109,254);*/
-  background-color: rgb(255,64,129);
+  position: center;
+  background-color: rgb(39, 122, 218);
   text-align: center;
   color: white;
 }
 
 .notifier-card .notifier-message {
   margin: 0em 2em 1em 2em;
+  font-size: 10px;
 }
 
 .notifier-card .notifier-title {
   text-transform: uppercase;
-  margin: 16px;
+  margin: 5px;
   font-size: 18px;
 }
 

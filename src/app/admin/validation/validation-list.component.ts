@@ -8,13 +8,13 @@ import { Title } from '@angular/platform-browser';
 import { Validation } from './../services/api/models';
 
 // components
-import { BaseListComponent } from './../common/components';
+import { BaseListComponent } from './../controllers/components';
 
 // pipes
-import { DisplayDataTransformPipe } from './../common/pipes';
+import { DisplayDataTransformPipe } from './../controllers/pipes';
 
 // services
-import { LocalStorageService, RestoreService } from './../common/services';
+import { LocalStorageService, RestoreService } from './../controllers/services';
 import { DataContext } from './../services/api/rest';
 import { EntityService, ModalDialogService, BusyIndicatorService, NotifierService } from '../../core';
 

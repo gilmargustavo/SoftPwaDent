@@ -1,0 +1,170 @@
+<h4>Antecedentes patológicos personales</h4>
+<div class="content" fxLayout="row" fxLayout.xs="column" fxFlexFill>
+  <div fxFlex="50" class="sec1" fxFlex.xs="55">
+    <div *ngIf="item && myForm" formToInject>
+      <form *ngIf="item" (ngSubmit)="onSubmit()" [formGroup]="myForm">
+
+        <div class="content" fxLayout="row" fxLayout.xs="column" fxFlexFill>
+          <div fxFlex="30" fxFlex.xs="100" fxFlex.sm="100">
+            <!--isActive - boolean-->
+            <table  class="tab">
+              <tr>
+                <td align="right">
+                  <md-checkbox id="preg1Input" #preg1Input [(ngModel)]="item.preg1" [ngModelOptions]="{standalone: true}" [align]="'end'" name="preg1_checkbox">{{formMetaData.properties.preg1['x-ncg'].label}}</md-checkbox>
+                  <small id="preg1ErrorMsgs" *ngFor="let error of formMetaData.properties.preg1['x-ncg'].errors" class="md-text-warn">{{error.message}}</small>
+                </td>
+              </tr>
+              <tr>
+                <td align="right">
+                  <md-checkbox id="preg2Input" #preg2Input [(ngModel)]="item.preg2" [ngModelOptions]="{standalone: true}" [align]="'end'" name="preg2_checkbox">{{formMetaData.properties.preg2['x-ncg'].label}}</md-checkbox>
+                  <small id="preg2ErrorMsgs" *ngFor="let error of formMetaData.properties.preg2['x-ncg'].errors" class="md-text-warn">{{error.message}}</small>
+                </td>
+              </tr>
+              <tr>
+                <td align="right">
+                  <md-checkbox id="preg3Input" #preg3Input [(ngModel)]="item.preg3" [ngModelOptions]="{standalone: true}" [align]="'end'" name="preg3_checkbox">{{formMetaData.properties.preg3['x-ncg'].label}}</md-checkbox>
+                  <small id="preg3ErrorMsgs" *ngFor="let error of formMetaData.properties.preg3['x-ncg'].errors" class="md-text-warn">{{error.message}}</small>
+                </td>
+              </tr>
+              <tr>
+                <td align="right">
+                  <md-checkbox id="preg4Input" #preg4Input [(ngModel)]="item.preg4" [ngModelOptions]="{standalone: true}" [align]="'end'" name="preg4_checkbox">{{formMetaData.properties.preg4['x-ncg'].label}}</md-checkbox>
+                  <small id="preg4ErrorMsgs" *ngFor="let error of formMetaData.properties.preg4['x-ncg'].errors" class="md-text-warn">{{error.message}}</small>
+                </td>
+              </tr>
+              <tr>
+                <td align="right">
+                  <md-checkbox id="preg5Input" #preg5Input [(ngModel)]="item.preg5" [ngModelOptions]="{standalone: true}" [align]="'end'" name="preg5_checkbox">{{formMetaData.properties.preg5['x-ncg'].label}}</md-checkbox>
+                  <small id="preg5ErrorMsgs" *ngFor="let error of formMetaData.properties.preg5['x-ncg'].errors" class="md-text-warn">{{error.message}}</small>
+                </td>
+              </tr>
+              <tr>
+                <td align="right">
+                  <md-checkbox id="preg6Input" #preg6Input [(ngModel)]="item.preg6" [ngModelOptions]="{standalone: true}" [align]="'end'" name="preg6_checkbox">{{formMetaData.properties.preg6['x-ncg'].label}}</md-checkbox>
+                  <small id="preg6ErrorMsgs" *ngFor="let error of formMetaData.properties.preg6['x-ncg'].errors" class="md-text-warn">{{error.message}}</small>
+                </td>
+              </tr>
+
+            </table>
+          </div>
+          <div fxFlex="30" fxFlex.xs="100" fxFlex.sm="100">
+            <table class="tab">
+              <tr>
+                <td align="right">
+                  <md-checkbox id="preg7Input" #preg7Input [(ngModel)]="item.preg7" [ngModelOptions]="{standalone: true}" [align]="'end'" name="preg7_checkbox">{{formMetaData.properties.preg7['x-ncg'].label}}</md-checkbox>
+                  <small id="preg7ErrorMsgs" *ngFor="let error of formMetaData.properties.preg7['x-ncg'].errors" class="md-text-warn">{{error.message}}</small>
+                </td>
+              </tr>
+              <tr>
+                <td align="right">
+                  <md-checkbox id="preg8Input" #preg8Input [(ngModel)]="item.preg8" [ngModelOptions]="{standalone: true}" [align]="'end'" name="preg8_checkbox">{{formMetaData.properties.preg8['x-ncg'].label}}</md-checkbox>
+                  <small id="preg8ErrorMsgs" *ngFor="let error of formMetaData.properties.preg8['x-ncg'].errors" class="md-text-warn">{{error.message}}</small>
+                </td>
+              </tr>
+              <tr>
+                <td align="right">
+                  <md-checkbox id="preg9Input" #preg9Input [(ngModel)]="item.preg9" [ngModelOptions]="{standalone: true}" [align]="'end'" name="preg9_checkbox">{{formMetaData.properties.preg9['x-ncg'].label}}</md-checkbox>
+                  <small id="preg9ErrorMsgs" *ngFor="let error of formMetaData.properties.preg9['x-ncg'].errors" class="md-text-warn">{{error.message}}</small>
+                </td>
+              </tr>
+              <tr>
+                <td align="right">
+                  <md-checkbox id="preg10Input" #preg10Input [(ngModel)]="item.preg10" [ngModelOptions]="{standalone: true}" [align]="'end'"
+                    name="preg10_checkbox">{{formMetaData.properties.preg10['x-ncg'].label}}</md-checkbox>
+                  <small id="preg10ErrorMsgs" *ngFor="let error of formMetaData.properties.preg10['x-ncg'].errors" class="md-text-warn">{{error.message}}</small>
+                </td>
+              </tr>
+              <tr>
+                <td align="right">
+                  <md-checkbox id="preg11Input" #preg11Input [(ngModel)]="item.preg11" [ngModelOptions]="{standalone: true}" [align]="'end'"
+                    name="preg11_checkbox">{{formMetaData.properties.preg11['x-ncg'].label}}</md-checkbox>
+                  <small id="preg11ErrorMsgs" *ngFor="let error of formMetaData.properties.preg11['x-ncg'].errors" class="md-text-warn">{{error.message}}</small>
+                </td>
+              </tr>
+
+              <tr>
+                <td align="right">
+                  <md-checkbox id="preg12Input" #preg12Input [(ngModel)]="item.preg12" [ngModelOptions]="{standalone: true}" [align]="'end'"
+                    name="preg12_checkbox">{{formMetaData.properties.preg12['x-ncg'].label}}</md-checkbox>
+                  <small id="preg12ErrorMsgs" *ngFor="let error of formMetaData.properties.preg12['x-ncg'].errors" class="md-text-warn">{{error.message}}</small>
+                </td>
+              </tr>
+            </table>
+
+          </div>
+
+          <div fxFlex="30" fxFlex.xs="100" fxFlex.sm="100">
+            <table  class="tab">
+              <tr>
+                <td align="right">
+                  <md-checkbox id="preg13Input" #preg13Input [(ngModel)]="item.preg13" [ngModelOptions]="{standalone: true}" [align]="'end'"
+                    name="preg13_checkbox">{{formMetaData.properties.preg13['x-ncg'].label}}</md-checkbox>
+                  <small id="preg13ErrorMsgs" *ngFor="let error of formMetaData.properties.preg13['x-ncg'].errors" class="md-text-warn">{{error.message}}</small>
+                </td>
+              </tr>
+              <tr>
+                <td align="right">
+                  <md-checkbox id="preg14Input" #preg14Input [(ngModel)]="item.preg14" [ngModelOptions]="{standalone: true}" [align]="'end'"
+                    name="preg14_checkbox">{{formMetaData.properties.preg14['x-ncg'].label}}</md-checkbox>
+                  <small id="preg14ErrorMsgs" *ngFor="let error of formMetaData.properties.preg14['x-ncg'].errors" class="md-text-warn">{{error.message}}</small>
+                </td>
+              </tr>
+              <tr>
+                <td align="right">
+                  <md-checkbox id="preg15Input" #preg15Input [(ngModel)]="item.preg15" [ngModelOptions]="{standalone: true}" [align]="'end'"
+                    name="preg15_checkbox">{{formMetaData.properties.preg15['x-ncg'].label}}</md-checkbox>
+                  <small id="preg15ErrorMsgs" *ngFor="let error of formMetaData.properties.preg15['x-ncg'].errors" class="md-text-warn">{{error.message}}</small>
+                </td>
+              </tr>
+              <tr>
+                <td align="right">
+                  <md-checkbox id="preg16Input" #preg16Input [(ngModel)]="item.preg16" [ngModelOptions]="{standalone: true}" [align]="'end'"
+                    name="preg16_checkbox">{{formMetaData.properties.preg16['x-ncg'].label}}</md-checkbox>
+                  <small id="preg16ErrorMsgs" *ngFor="let error of formMetaData.properties.preg16['x-ncg'].errors" class="md-text-warn">{{error.message}}</small>
+                </td>
+              </tr>
+              <tr>
+                <td align="right">
+                  <md-checkbox id="preg17Input" #preg17Input [(ngModel)]="item.preg17" [ngModelOptions]="{standalone: true}" [align]="'end'"
+                    name="preg17_checkbox">{{formMetaData.properties.preg17['x-ncg'].label}}</md-checkbox>
+                  <small id="preg17ErrorMsgs" *ngFor="let error of formMetaData.properties.preg17['x-ncg'].errors" class="md-text-warn">{{error.message}}</small>
+                </td>
+              </tr>
+              <tr>
+                <td align="right">
+                  <md-checkbox id="preg18Input" #preg18Input [(ngModel)]="item.preg18" [ngModelOptions]="{standalone: true}" [align]="'end'"
+                    name="preg18_checkbox">{{formMetaData.properties.preg18['x-ncg'].label}}</md-checkbox>
+                  <small id="preg18ErrorMsgs" *ngFor="let error of formMetaData.properties.preg18['x-ncg'].errors" class="md-text-warn">{{error.message}}</small>
+                </td>
+              </tr>
+
+              <tr>
+                <td align="right">
+                  <md-checkbox id="preg19Input" #preg19Input [(ngModel)]="item.preg19" [ngModelOptions]="{standalone: true}" [align]="'end'"
+                    name="preg19_checkbox">{{formMetaData.properties.preg19['x-ncg'].label}}</md-checkbox>
+                  <small id="preg19ErrorMsgs" *ngFor="let error of formMetaData.properties.preg19['x-ncg'].errors" class="md-text-warn">{{error.message}}</small>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <br>
+        <div *ngIf="!myForm.valid" class="mb-1 ui error message">Formulario es invalido</div>
+        <div class="content" fxLayout="row" fxLayout.xs="column" fxFlexFill>
+          <div fxFlex="50" fxFlex.xs="100">
+            <button md-raised-button color="primary" id="backButton" type="button" class="btn btn-secondary borde" (click)="goBack()"
+              [attr.aria-label]="back">Atras</button>
+            <button md-raised-button color="primary" id="cancelButton" type="button" class="btn btn-secondary borde" (click)="onCancel()"
+              [attr.aria-label]="cancel">Cancelar</button>
+          </div>
+          <div fxFlex="50" fxFlex.xs="100">
+            <button md-raised-button color="primary" id="resetButton" type="button" [disabled]="myForm.pristine" class="btn btn-secondary borde"
+              (click)="onReset()" [attr.aria-label]="reset">Reiniciar</button>
+            <button md-raised-button color="primary" id="submitButton" type="submit" [disabled]="myForm.invalid && isSubmitAttempted"
+              class="btn btn-primary borde" [attr.aria-label]="submit">Guardar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

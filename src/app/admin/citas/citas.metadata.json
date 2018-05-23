@@ -1,0 +1,193 @@
+{
+  "description": "Filiación de pacientes",
+  "properties": {
+    "fecha": {
+      "format": "date-time",
+      "type": "string",
+      "x-ncg": {
+        "label": "Fecha",
+        "view": {
+          "item": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 100
+          },
+          "list": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 100
+          }
+        },
+        "placeholder": "Fecha",
+        "validations": {
+          "required": {
+            "value": true
+          }
+        },
+        "type": "string",
+        "format": "date-time"
+      }
+    },
+    "especialidad": {
+      "default": "Especialidad",
+      "description": "Especialidad",
+      "title": "Especialidad",
+      "type": "string",
+      "x-ncg": {
+        "label": "Especialidad",
+        "view": {
+          "item": {
+            "isHidden": false,
+            "isGenerated": true,
+            "order": 1
+          },
+          "list": {
+            "isHidden": false,
+            "isGenerated": true,
+            "order": 1
+          }
+        },
+        "placeholder": "Especialidad",
+        "validations": {
+        }
+      }
+    },
+    "curacion": {
+      "default": "Curación",
+      "description": "Curación",
+      "title": "Curación",
+      "type": "string",
+      "x-ncg": {
+        "label": "Curación",
+        "view": {
+          "item": {
+            "isHidden": false,
+            "isGenerated": true,
+            "order": 1
+          },
+          "list": {
+            "isHidden": false,
+            "isGenerated": true,
+            "order": 1
+          }
+        },
+        "placeholder": "Curación",
+        "validations": {
+        }
+      }
+    },
+    "observacion": {
+      "default": "Observación",
+      "description": "Observación",
+      "title": "Observación",
+      "type": "string",
+      "x-ncg": {
+        "label": "Observación",
+        "view": {
+          "item": {
+            "isHidden": false,
+            "isGenerated": true,
+            "order": 1
+          },
+          "list": {
+            "isHidden": false,
+            "isGenerated": true,
+            "order": 1
+          }
+        },
+        "placeholder": "Observación",
+        "validations": {
+        }
+      }
+    },
+    "idDoctor": {
+      "default": "doctor",
+      "description": "doctor",
+      "title": "Doctor",
+      "type": "string",
+      "x-ncg": {
+        "label": "Doctor",
+        "view": {
+          "item": {
+            "isHidden": false,
+            "isGenerated": true,
+            "order": 1
+          },
+          "list": {
+            "isHidden": false,
+            "isGenerated": true,
+            "order": 1
+          }
+        },
+        "placeholder": "Doctor",
+        "validations": {
+        }
+      }
+    },
+    "idPaciente": {
+      "default": "paciente",
+      "description": "paciente",
+      "title": "Paciente",
+      "type": "string",
+      "x-ncg": {
+        "label": "Paciente",
+        "view": {
+          "item": {
+            "isHidden": false,
+            "isGenerated": true,
+            "order": 1
+          },
+          "list": {
+            "isHidden": false,
+            "isGenerated": true,
+            "order": 1
+          }
+        },
+        "placeholder": "Paciente",
+        "validations": {
+        }
+      }
+    },
+    "hora": {
+      "format": "time",
+      "type": "string",
+      "x-ncg": {
+        "label": "Hora",
+        "view": {
+          "item": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 100
+          },
+          "list": {
+            "isDisplayed": true,
+            "isGenerated": true,
+            "order": 100
+          }
+        },
+        "placeholder": "Hora",
+        "validations": {
+          "required": {
+            "value": true
+          }
+        },
+        "type": "string",
+        "format": "time"
+      }
+    }
+  },
+  "type": "object",
+  "x-ncg": {
+    "order": 4,
+    "label": "Pacientes",
+    "isSelected": true,
+    "foreignKeys": []
+  }
+}
+
+
+ 
+
+    
+
+

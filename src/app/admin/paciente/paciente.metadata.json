@@ -1,5 +1,5 @@
 {
-  "description": "4. Customized in x-ncg, validations.",
+  "description": "Filiación de pacientes",
   "properties": {
     "ci": {
       "format": "int32",
@@ -19,7 +19,11 @@
           }
         },
         "placeholder": "CI",
-        "validations": {},
+        "validations": {
+          "required": {
+            "value": true
+          }
+        },
         "type": "integer",
         "format": "int32"
       }
@@ -41,7 +45,11 @@
           }
         },
         "placeholder": "Nombre",
-        "validations": {},
+        "validations": {
+          "required": {
+            "value": true
+          }
+        },
         "type": "string"
       }
     },
@@ -62,13 +70,15 @@
           }
         },
         "placeholder": "Apellido Paterno",
-        "validations": {},
+        "validations": {
+          "required": {
+            "value": true
+          }
+        },
         "type": "string"
       }
     },
     "materno": {
-      "maxLength": 8,
-      "minLength": 8,
       "type": "string",
       "x-ncg": {
         "label": "Apellido Materno",
@@ -86,12 +96,6 @@
         },
         "placeholder": "Apellido Materno",
         "validations": {
-          "maxLength": {
-            "value": 8
-          },
-          "minLength": {
-            "value": 2
-          }
         },
         "type": "string"
       }
@@ -118,15 +122,40 @@
         "type": "integer",
         "format": "int32"
       }
-    }
+    },
+    "fechaNac": {
+         "format": "date-time",
+         "type": "string",
+         "x-ncg": {
+            "label": "Fecha Nacimiento",
+            "view": {
+               "item": {
+                  "isHidden": false,
+                  "isGenerated": true,
+                  "order": 1
+               },
+               "list": {
+                  "isHidden": false,
+                  "isGenerated": true,
+                  "order": 1
+               }
+            },
+            "placeholder": "Fecha Nacimiento",
+            "validations": {},
+            "type": "string",
+            "format": "date-time"
+         }
+      }
   },
   "required": [
-    "valRequiredField"
+    "ci",
+    "nombre",
+    "paterno"
   ],
   "type": "object",
   "x-ncg": {
     "order": 4,
-    "label": "Ncg Validation",
+    "label": "Pacientes",
     "isSelected": true,
     "foreignKeys": []
   }

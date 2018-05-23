@@ -1,6 +1,6 @@
 // angular
 import { Component, Input } from '@angular/core';
-import { Location } from '@angular/common';
+import { Location,DatePipe } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -8,13 +8,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 // api
 import { PacienteValidation } from './../services/api/models';
 
+import {MdSnackBar, MdSnackBarConfig} from '@angular/material';
 // providers/services
-import { LocalStorageService, RestoreService, ValidationService } from './../common/services';
+import { LocalStorageService, RestoreService, ValidationService } from './../controllers/services';
 import { DataContext } from './../services/api/rest';
 import { EntityService, ModalDialogService, BusyIndicatorService, NotifierService } from '../../core';
 
 // components
-import { BaseItemComponent } from './../common/components/base-item.component';
+import { BaseItemComponent } from './../controllers/components/base-item.component';
 
 // other
 import * as moment from 'moment';
@@ -24,8 +25,14 @@ import { FirebaseApp } from 'angularfire2';
 
 
 @Component({
-  selector: 'paciente',
-  templateUrl: './paciente-item.component.html'
+  selector: 'pacienteItem',
+  templateUrl: './paciente-item.component.html',
+  styles:[`
+  .borde{
+    margin-top:10px;
+  }
+    `],
+  providers: [DatePipe]
 })
 
 export class PacienteItemComponent extends BaseItemComponent<PacienteValidation> {
@@ -33,7 +40,7 @@ export class PacienteItemComponent extends BaseItemComponent<PacienteValidation>
 
   @Input() myForm: FormGroup;
 
-  constructor(
+  constructor(protected snackBar: MdSnackBar,protected datePipe:DatePipe,
     protected datacontextService: DataContext,    
     protected titleService: Title,
     protected entityService: EntityService, 
@@ -48,7 +55,7 @@ export class PacienteItemComponent extends BaseItemComponent<PacienteValidation>
     protected validationService: ValidationService,
     protected afoDatabase: AngularFireOfflineDatabase
   ) {
-    super(titleService,
+    super(snackBar,datePipe,titleService,
       datacontextService.NcgValidationApi,
       entityService, 
       modalDialogService, 
@@ -107,6 +114,14 @@ export class PacienteItemComponent extends BaseItemComponent<PacienteValidation>
           this.formMetaData.properties.materno['x-ncg'].defaultValue ? this.formMetaData.properties.materno['x-ncg'].defaultValue : null,
           Validators.compose(
           this.validationService.generateValidators(this.formMetaData.properties.materno['x-ncg'].validations)
+        )
+      ] : null,
+
+      fechaNac: this.formMetaData.properties.fechaNac ? [
+        this.formMetaData.properties.fechaNac['x-ncg'].defaultValue ?
+          this.formMetaData.properties.fechaNac['x-ncg'].defaultValue : null,
+        Validators.compose(
+          this.validationService.generateValidators(this.formMetaData.properties.fechaNac['x-ncg'].validations)
         )
       ] : null,
       

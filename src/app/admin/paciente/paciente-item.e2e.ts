@@ -2,12 +2,11 @@
 import { browser, by, element } from 'protractor';
 import { AdminView } from '../admin.po';
 import { PacienteListPageObject } from './paciente-list.po';
-import { PacienteItemComponent } from './paciente-item.component';
-import { PacienteValidation } from '../services/api/models/paciente-validation';
-import { ValidationService } from '../common/services/validation.service';
-import { E2eHelper } from '../common/e2eHelper';
-import * as changeCase from 'change-case';
 import { PacienteItemPageObject } from './paciente-item.po';
+import { PacienteValidation } from '../services/api/models/paciente-validation';
+import { ValidationService } from '../controllers/services/validation.service';
+import { E2eHelper } from '../controllers/e2eHelper';
+import * as changeCase from 'change-case';
 
 describe('Ncg Validation Item', () => {
   describe('As a user, I', () => {

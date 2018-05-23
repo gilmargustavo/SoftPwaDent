@@ -1,51 +1,222 @@
-<div class="mb-1">
-  <button id="addButton" md-raised-button color="primary" class="btn btn-secondary" [routerLink]="['new']">Nuevo Paciente</button>
-  <button id="" md-raised-button color="primary" class="btn btn-secondary">Reiniciar Listado</button>
+<div class="content" fxLayout="row" fxLayout.xs="column" fxFlexFill>
+  <div fxFlex="20" class="sec1" fxFlex.xs="55">
+    <button id="addButton" md-raised-button color="primary" mdTooltip="Nuevo paciente" mdTooltipPosition="above" class="btn btn-secondary" [routerLink]="['new']">Nuevo Paciente</button>
+
+    <br>
+    <br>
+
+    <md-input-container style="width: 90%">
+      <input mdInput type='text' placeholder='Introduzca "CI" del paciente' (keyup)='updateFilter($event)' /> </md-input-container>
+    <br>
+    <md-input-container style="width: 90%">
+      <input mdInput type='text' placeholder='Introduzca apellido "paterno"' (keyup)='updateFilter1($event)' /> </md-input-container>
+  </div>
+
+  <div fxFlex="80" fxFlex.xs="15">
+    <ngx-datatable class="material" [headerHeight]="40" [limit]="10" [scrollbarH]="true" [columnMode]="'force'" [footerHeight]="30"
+      [rowHeight]="'auto'" [rows]="items | async">
+
+      <ngx-datatable-column name="Historial">
+        <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+          <button id="editButton" md-icon-button md-button-sm mdTooltip="Patología Personal" mdTooltipPosition="above" (click)="generarPersonales(row.$key)" [attr.aria-label]="edit">
+            <img src="../assets/icons/ic_assignment_turned_in_black_24px.svg">
+          </button>
+          <button id="deleteButton" md-icon-button md-button-sm mdTooltip="Patología Familiar" mdTooltipPosition="above" (click)="generarFamiliares(row.$key)" [attr.aria-label]="delete">
+            <img src="../assets/icons/ic_storage_black_24px.svg">
+          </button>
+          <button id="deleteButton" md-icon-button md-button-sm mdTooltip="Seguimiento Dental" mdTooltipPosition="above"  (click)="odonto()" [attr.aria-label]="delete">
+            <img src="../assets/icons/ic_content_paste_black_24px.svg">
+          </button>
+          <button id="editButton" md-icon-button md-button-sm mdTooltip="Odontograma Detalle" mdTooltipPosition="above" (click)="historial(row)" [attr.aria-label]="edit">
+            <img src="../assets/icons/dentist1.svg">
+          </button>
+        </ng-template>
+      </ngx-datatable-column>
+
+
+      <ngx-datatable-column name="Paciente" width="300">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          {{row.paterno}}&nbsp;{{row.materno}}&nbsp;{{row.nombre}}
+        </ng-template>
+      </ngx-datatable-column>
+
+      <ngx-datatable-column name="CI">
+        <ng-template let-value="row['ci']" ngx-datatable-cell-template>
+          {{value}}
+        </ng-template>
+      </ngx-datatable-column>
+
+      <ngx-datatable-column name="Acciones">
+        <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+          <button id="editButton" md-icon-button md-button-sm (click)="edit(row)" [attr.aria-label]="edit">
+            <img src="../assets/icons/ic_edit_black_24px.svg">
+          </button>
+          <button id="deleteButton" md-icon-button md-button-sm (click)="deleteItem(row.$key)" [attr.aria-label]="delete">
+            <img src="../assets/icons/ic_delete_black_24px.svg">
+          </button>
+        </ng-template>
+      </ngx-datatable-column>
+
+    </ngx-datatable>
+
+    <div [hidden]="sw">
+      <ngx-datatable class="material" [headerHeight]="40" [limit]="10" [scrollbarH]="true" [columnMode]="'force'" [footerHeight]="30"
+        [rowHeight]="'auto'" [rows]="patoFamiliares | async">
+
+        <ngx-datatable-column name="P1">
+          <ng-template let-value="row['preg1']" ngx-datatable-cell-template>
+            <md-checkbox [checked]="value" disabled></md-checkbox>
+          </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="P2">
+          <ng-template let-value="row['preg2']" ngx-datatable-cell-template>
+            <md-checkbox [checked]="value" disabled></md-checkbox>
+          </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="P3">
+          <ng-template let-value="row['preg3']" ngx-datatable-cell-template>
+            <md-checkbox [checked]="value" disabled></md-checkbox>
+          </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="P4">
+          <ng-template let-value="row['preg4']" ngx-datatable-cell-template>
+            <md-checkbox [checked]="value" disabled></md-checkbox>
+          </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="Acciones">
+          <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+            <button id="editButton" md-icon-button md-button-sm (click)="editFamiliar(row)" [attr.aria-label]="edit">
+              <img src="../assets/icons/ic_edit_black_24px.svg">
+            </button>
+          </ng-template>
+        </ngx-datatable-column>
+
+      </ngx-datatable>
+    </div>
+
+    <div [hidden]="sw1">
+      <ngx-datatable class="material" [headerHeight]="40" [limit]="10" [scrollbarH]="true" [columnMode]="'force'" [footerHeight]="30"
+        [rowHeight]="'auto'" [rows]="patoPersonales | async">
+
+        <ngx-datatable-column name="P2">
+          <ng-template let-value="row['preg1']" ngx-datatable-cell-template>
+            <md-checkbox [checked]="value" disabled></md-checkbox>
+          </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="P2">
+          <ng-template let-value="row['preg2']" ngx-datatable-cell-template>
+            <md-checkbox [checked]="value" disabled></md-checkbox>
+          </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="P3">
+          <ng-template let-value="row['preg3']" ngx-datatable-cell-template>
+            <md-checkbox [checked]="value" disabled></md-checkbox>
+          </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="P4">
+          <ng-template let-value="row['preg4']" ngx-datatable-cell-template>
+            <md-checkbox [checked]="value" disabled></md-checkbox>
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="P5">
+          <ng-template let-value="row['preg5']" ngx-datatable-cell-template>
+            <md-checkbox [checked]="value" disabled></md-checkbox>
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="P6">
+          <ng-template let-value="row['preg6']" ngx-datatable-cell-template>
+            <md-checkbox [checked]="value" disabled></md-checkbox>
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="P7">
+          <ng-template let-value="row['preg7']" ngx-datatable-cell-template>
+            <md-checkbox [checked]="value" disabled></md-checkbox>
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="P8">
+          <ng-template let-value="row['preg8']" ngx-datatable-cell-template>
+            <md-checkbox [checked]="value" disabled></md-checkbox>
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="P9">
+          <ng-template let-value="row['preg9']" ngx-datatable-cell-template>
+            <md-checkbox [checked]="value" disabled></md-checkbox>
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="P10">
+          <ng-template let-value="row['preg10']" ngx-datatable-cell-template>
+            <md-checkbox [checked]="value" disabled></md-checkbox>
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="P11">
+          <ng-template let-value="row['preg11']" ngx-datatable-cell-template>
+            <md-checkbox [checked]="value" disabled></md-checkbox>
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="P12">
+          <ng-template let-value="row['preg12']" ngx-datatable-cell-template>
+            <md-checkbox [checked]="value" disabled></md-checkbox>
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="P13">
+          <ng-template let-value="row['preg13']" ngx-datatable-cell-template>
+            <md-checkbox [checked]="value" disabled></md-checkbox>
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="P14">
+          <ng-template let-value="row['preg14']" ngx-datatable-cell-template>
+            <md-checkbox [checked]="value" disabled></md-checkbox>
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="P15">
+          <ng-template let-value="row['preg15']" ngx-datatable-cell-template>
+            <md-checkbox [checked]="value" disabled></md-checkbox>
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="P16">
+          <ng-template let-value="row['preg16']" ngx-datatable-cell-template>
+            <md-checkbox [checked]="value" disabled></md-checkbox>
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="P17">
+          <ng-template let-value="row['preg17']" ngx-datatable-cell-template>
+            <md-checkbox [checked]="value" disabled></md-checkbox>
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="P18">
+          <ng-template let-value="row['preg18']" ngx-datatable-cell-template>
+            <md-checkbox [checked]="value" disabled></md-checkbox>
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="P19">
+          <ng-template let-value="row['preg19']" ngx-datatable-cell-template>
+            <md-checkbox [checked]="value" disabled></md-checkbox>
+          </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="Acciones">
+          <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+            <button id="editButton" md-icon-button md-button-sm (click)="editPersonal(row)" [attr.aria-label]="edit">
+              <img src="../assets/icons/ic_edit_black_24px.svg">
+            </button>
+          </ng-template>
+        </ngx-datatable-column>
+
+      </ngx-datatable>
+    </div>
+  </div>
 </div>
 
-<br><br>
 
 
-        <md-input-container style="width: 100%"> <input mdInput type='text'
-          style='margin:15px auto;width:30%;'
-          placeholder='Introduzca el ci del paciente'
-          (keyup)='updateFilter($event)'/> </md-input-container> 
-    
-
-  <ngx-datatable
-  class="material"
-  [headerHeight]="50"
-  [limit]="10"
-  [scrollbarH]="true"
-  [columnMode]="'force'"
-  [footerHeight]="50"
-  [rowHeight]="'auto'"
-  [rows]="items | async">
 
 
-  
-        <ngx-datatable-column name="CI">
-          <ng-template let-value="row['ci']" ngx-datatable-cell-template>
-            <strong>{{value}}</strong>
-          </ng-template>
-        </ngx-datatable-column>
-        <ngx-datatable-column name="Paciente">
-          <ng-template let-row="row" ngx-datatable-cell-template>
-            <strong>{{row.paterno}}&nbsp;{{row.materno}}&nbsp;{{row.nombre}}</strong>
-          </ng-template>
-        </ngx-datatable-column>
-            <ngx-datatable-column name="Celular">
-              <ng-template let-value="row['celular']" ngx-datatable-cell-template>
-                <strong>{{value}}</strong>
-              </ng-template>
-            </ngx-datatable-column>
 
-            <ngx-datatable-column name="Acciones" width="100">
-              <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-                <button id="editButton" md-icon-button md-button-sm (click)="edit(row)" [attr.aria-label]="edit"><md-icon>edit</md-icon></button>
-                <button id="deleteButton" md-icon-button md-button-sm (click)="deleteItem(row.$key)" [attr.aria-label]="delete"><md-icon>delete</md-icon></button>
-              </ng-template>
-            </ngx-datatable-column>
-      </ngx-datatable>
 
-      

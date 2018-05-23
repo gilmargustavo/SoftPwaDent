@@ -7,7 +7,7 @@
 export interface IPacienteValidation {
 
   // keys
-  //id?: number;
+  id?: number;
 
   // properties
   ci?:number;
@@ -15,6 +15,7 @@ export interface IPacienteValidation {
   paterno?: string;
   materno?: string;
   celular?: number;
+  fechaNac?: string;
 
 
 

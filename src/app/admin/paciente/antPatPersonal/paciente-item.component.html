@@ -1,0 +1,113 @@
+<h1>Seguimiento dental</h1>
+<br>
+<br>
+<ngx-datatable class="material" [headerHeight]="50" [limit]="10" [scrollbarH]="true" [columnMode]="'force'" [footerHeight]="50"
+  [rowHeight]="'auto'" [rows]="items | async">
+
+
+
+  <ngx-datatable-column name="ESPECIALIDAD">
+    <ng-template let-value="row['especialidad']" ngx-datatable-cell-template>
+      <strong>{{value}}</strong>
+    </ng-template>
+  </ngx-datatable-column>
+
+  <ngx-datatable-column name="TRATAMIENTO">
+    <ng-template let-value="row['curacion']" ngx-datatable-cell-template>
+      <strong>{{value}}</strong>
+    </ng-template>
+  </ngx-datatable-column>
+
+  <ngx-datatable-column name="NORMA">
+    <ng-template let-value="row['norma']" ngx-datatable-cell-template>
+      <strong>{{value}}</strong>
+    </ng-template>
+  </ngx-datatable-column>
+
+  <ngx-datatable-column name="PIEZA">
+    <ng-template let-value="row['pieza']" ngx-datatable-cell-template>
+      <strong>{{value}}</strong>
+    </ng-template>
+  </ngx-datatable-column>
+
+
+  <ngx-datatable-column name="Acciones" width="100">
+    <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+      <button id="editButton" md-icon-button md-button-sm (click)="irOdontograma(row)" [attr.aria-label]="edit">
+        <img src="../assets/icons/ic_assignment_turned_in_black_24px.svg">
+      </button>
+    </ng-template>
+  </ngx-datatable-column>
+</ngx-datatable>
+
+<div layout="row" layout-margin class="main-div">
+  <md-card>
+    <table class="tabla">
+      <tr>
+        <td>18</td>
+        <td>17</td>
+        <td>16</td>
+        <td>15</td>
+        <td>14</td>
+        <td>13</td>
+        <td>12</td>
+        <td>11</td>
+        <td>21</td>
+        <td>22</td>
+        <td>23</td>
+        <td>24</td>
+        <td>25</td>
+        <td>26</td>
+        <td>27</td>
+        <td>28</td>
+      </tr>
+    </table>
+    <md-card-content *ngFor="let item of superior | async" class="linea">
+      <img src="../../../assets/images/dentadura-sup-{{item?.diente}}.png" class="md-card-image" alt="image caption" (click)="mostrar(item?.diente)"
+      />
+    </md-card-content>
+
+  </md-card>
+</div>
+
+<div layout="row" layout-margin class="main-div">
+  <md-card>
+    <md-card-content *ngFor="let item of inferior | async" class="linea">
+      <img src="../../../assets/images/dentadura-inf-{{item?.diente}}.png" class="md-card-image" alt="image caption" (click)="mostrar(item?.diente)"
+      />
+    </md-card-content>
+    <table class="tabla">
+      <tr>
+        <td>48</td>
+        <td>47</td>
+        <td>46</td>
+        <td>45</td>
+        <td>44</td>
+        <td>43</td>
+        <td>42</td>
+        <td>41</td>
+        <td>31</td>
+        <td>32</td>
+        <td>33</td>
+        <td>34</td>
+        <td>35</td>
+        <td>36</td>
+        <td>37</td>
+        <td>38</td>
+      </tr>
+    </table>
+  </md-card>
+</div>
+<br>
+<br>
+
+<div *ngIf="item && myForm" formToInject>
+  <form *ngIf="item" (ngSubmit)="onSubmit()" [formGroup]="myForm">
+
+    <div *ngIf="!myForm.valid" class="mb-1 ui error message">Formulario es invalido</div>
+    <div class="mb-1">
+      <button md-raised-button color="primary" id="backButton" type="button" class="btn btn-secondary" (click)="goBack()" [attr.aria-label]="back">Atras</button>
+      <button md-raised-button color="primary" id="cancelButton" type="button" class="btn btn-secondary" (click)="onCancel()" [attr.aria-label]="cancel">Cancelar</button>
+    </div>
+  </form>
+</div>

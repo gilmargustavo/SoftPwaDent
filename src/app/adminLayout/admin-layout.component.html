@@ -1,79 +1,111 @@
 <div fxLayout="column" fxFlex [class.dark-theme]="isDarkTheme" id="NavBar">
   <md-toolbar color="primary">
-    <span>SoftDent V1.0</span>
+    <span>Orthodent V1.0</span>
     <button id="sideBarToggleButton" md-icon-button (click)="sidenav.toggle()">
-      <md-icon>more_vert</md-icon>
+      <img src="../assets/icons/ic_more_vert_black_24px.svg">
     </button>
     <!-- Filler that pushes the menu button to the end of the toolbar -->
     <span fxFlex></span>
     <button md-icon-button [mdMenuTriggerFor]="themeMenu">
-      <md-icon>perm_identity</md-icon>
+      <img src="../assets/icons/ic_perm_identity_black_24px.svg">
     </button>
   </md-toolbar>
   <md-sidenav-container fxFlex class="app-inner">
-    <md-sidenav #sidenav mode="sidenav" id="sidebar-panel" class="sidebar-panel"  opened="false">
+    <md-sidenav #sidenav mode="sidenav" id="sidebar-panel" class="sidebar-panel" opened="false">
       <md-nav-list class="sidebar-sample">
-        <md-list-item>
-          <div class="badge">Home</div>
+        <md-list-item *ngIf="currentUser[0]['usuario']=='ddd' || currentUser[0]['usuario']=='gustavo'">
+          <div class="badge">Inicio</div>
           <button md-menu-item (click)="btnClick();">
-            <md-icon>home</md-icon>
+            <img src="../assets/icons/ic_home_black_24px.svg">
             <span>Inicio</span>
           </button>
         </md-list-item>
         <md-list-item>
           <div class="badge">Users</div>
-          <button md-menu-item (click)="btnClick2();">          
-            <md-icon>perm_identity</md-icon>
+          <button md-menu-item (click)="btnClick2();">
+            <img src="../assets/icons/ic_account_circle_black_24px.svg">
             <span>Usuarios</span>
           </button>
         </md-list-item>
         <md-list-item>
+          <div class="badge">Filiación</div>
+          <button md-menu-item (click)="btnClick10();">
+            <img src="../assets/icons/ic_perm_contact_calendar_black_24px.svg">
+            <span>Filiación</span>
+          </button>
+        </md-list-item>
+
+        <md-list-item>
           <div class="badge">Citas</div>
-          <button md-menu-item>            
-            <md-icon>access_time</md-icon>
+          <button md-menu-item (click)="btnClick6();">
+            <img src="../assets/icons/ic_alarm_black_24px.svg">
             <span>Citas</span>
           </button>
         </md-list-item>
 
-      <md-list-item>
+        <md-list-item>
           <div class="badge">Paciente</div>
           <button md-menu-item (click)="btnClick1();">
-              <md-icon>add_circle</md-icon>
-              <span>Pacientes</span>
-            </button>
-      </md-list-item>
-
-      <md-list-item>
-          <div class="badge">Historial</div>
-          <button md-menu-item>
-              <md-icon>content_paste</md-icon>
-              <span>Historial</span>
-            </button>
-      </md-list-item>
-
-      <md-list-item>
-        <div class="badge">Antecedentes</div>
-        <button md-menu-item (click)="btnClick3();">
-            <md-icon>content_paste</md-icon>
-            <span>Antecedentes Patológicos Personales</span>
+            <img src="../assets/icons/ic_person_add_black_24px.svg">
+            <span>Pacientes</span>
           </button>
-    </md-list-item>
+        </md-list-item>
 
+        <md-list-item>
+          <div class="badge">Historial</div>
+          <button md-menu-item (click)="btnClick5();">
+            <img src="../assets/icons/ic_assignment_black_24px.svg">
+            <span>Historial</span>
+          </button>
+        </md-list-item>
 
-    </md-nav-list>
+        <md-list-item *ngIf="false">
+          <div class="badge">Antecedentes</div>
+          <button md-menu-item (click)="btnClick3();">
+            <img src="../assets/icons/ic_date_range_black_24px.svg">
+            <span>Antecedentes</span>
+          </button>
+        </md-list-item>
+
+        <md-list-item>
+          <div class="badge">Odontograma</div>
+          <button md-menu-item (click)="btnClick4();">
+            <img src="../assets/icons/dentist.svg">
+
+            <span>Odontograma</span>
+          </button>
+        </md-list-item>
+
+        <md-list-item>
+          <div class="badge">Doctores</div>
+          <button md-menu-item (click)="btnClick7();">
+            <img src="../assets/icons/ic_person_add_black_24px.svg">
+            <span>Doctores</span>
+          </button>
+        </md-list-item>
+      </md-nav-list>
     </md-sidenav>
     <router-outlet></router-outlet>
     <footer>
       <br>
       <br>
-      <span> <p>2018 © Gilmar Gustavo Vargas Montevilla - Todos los derechos reservados</p></span>
+      <span>
+        <p>2018 © Gilmar Gustavo Vargas Montevilla - Todos los derechos reservados</p>
+      </span>
     </footer>
+
   </md-sidenav-container>
   <md-menu #themeMenu x-position="before">
-    <button md-menu-item (click)="isDarkTheme = !isDarkTheme">Iniciar Sesión</button>
-    <button md-menu-item (click)="isDarkTheme = !isDarkTheme">Resgistrarse</button>
+    <button md-menu-item [routerLink]="['/login']">Logout</button>
+    <div align="center"class="container">
+      <h5><img src="../assets/icons/ic_account_circle_black_24px.svg"> {{currentUser[0]["usuario"]}}</h5>
+    </div>
   </md-menu>
+
+
 </div>
+
+
 
 <ncg-busyIndicator></ncg-busyIndicator>
 <ncg-notifier></ncg-notifier>
